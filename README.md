@@ -22,6 +22,45 @@ POST /api/trip/plan
 
 关键点：**工具调用永远由本地代码执行**，模型只输出参数。所以不存在"模型自己编一个断桥残雪的经纬度"这种事。
 
+## 架构
+
+```mermaid
+flowchart LR
+    subgraph 前端
+        UI["Vue 3 + TS<br/>Home / Result"]
+    end
+
+    subgraph 后端["FastAPI"]
+        API["/api/trip/*<br/>202 + task_id"]
+        TW["/tasks/{id}<br/>状态 / SSE"]
+        DB[("SQLite / MySQL<br/>tasks · steps · events · jobs · cache")]
+        Q[["Queue<br/>SQLite 或 Redis"]]
+        W["worker<br/>python -m app.worker"]
+        R["TaskRunner<br/>状态机 + 逐步落库"]
+        AG["四步编排<br/>景点 → 天气 → 酒店 → 规划"]
+    end
+
+    AMAP["高德 Web 服务"]
+    LLM["LLM（OpenAI 兼容）"]
+    CACHE[("cache_entries<br/>POI / 酒店 / 天气 TTL")]
+
+    UI -->|提交| API
+    API -->|"EXECUTION_MODE=background"| R
+    API -->|"EXECUTION_MODE=queue"| Q
+    Q --> W --> R
+    R --> AG
+    AG -->|"function call 抽参数"| LLM
+    AG -->|"REST 取真数据"| AMAP
+    AG --> CACHE
+    AG -->|"轨迹 + 行程"| DB
+    API --> DB
+    UI -->|"轮询 / SSE"| TW
+    TW --> DB
+```
+
+两条执行路径（`EXECUTION_MODE`）：默认 `background` 在 API 进程内跑，开箱即用；
+`queue` 交给独立 worker，才有重试、崩溃恢复和多进程并发。
+
 ## 与旧实现的差别
 
 | | 旧版（HelloAgents + amap-mcp-server） | 现在 |
@@ -161,6 +200,22 @@ Windows 一键启动：`start.bat`。
 | GET | `/api/poi/photo` | 景点图片 |
 
 失败语义：上游不可用 → 502 带原因；数据不完整 → 200 但 `degraded=true`；任务失败 → 任务状态 `failed` + `error.code`。
+
+## 运行手册（出问题先看这张表）
+
+| 现象 | 原因 | 处理 |
+|---|---|---|
+| 启动报 `AMAP_API_KEY未配置` | 没填 `.env` | 复制 `.env.example` 填 Key；CI 里用 `SKIP_CONFIG_VALIDATION=1` 跳过 |
+| 提交后一直 `pending` | 用了 `EXECUTION_MODE=queue` 但没起 worker | 另开窗口 `python -m app.worker`，或改回 `background` |
+| 提交返回 502 `任务状态: failed` | LLM 或高德调用失败 | 看 `GET /api/trip/tasks/{id}` 的 `error.message`，再看日志里的 `request_id` |
+| LLM 报 `Thinking mode does not support this tool_choice` | 模型开了思考模式 | 设 `LLM_THINKING=disabled`（默认已设） |
+| 结果里 `degraded=true` | 某一步没取到真实数据 | 看 `warnings`；`data_sources` 里有"几条来自高德" |
+| `database is locked` | SQLite 写入竞争 | 已开 WAL + `busy_timeout=15s`；多进程部署请换 MySQL |
+| 前端地图空白 | 没配 JS API Key 或没配域名白名单 | `frontend/.env` 填 `VITE_AMAP_WEB_JS_KEY`，控制台加白名单 |
+| 端口占用 | 8000/5300 被别的进程占了 | 换 `PORT`，或 `vite --port` |
+
+排查顺序永远是：**`X-Request-Id` → 日志里同一 `request_id` 的全部行 → 该行的 `task_id` → 任务详情**。
+一次 run 的每一步（工具、条数、耗时、mode）都在 `GET /api/trip/tasks/{id}` 的 `steps` 里。
 
 ## 测试
 

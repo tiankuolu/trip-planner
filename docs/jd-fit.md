@@ -16,7 +16,7 @@
 | M1 | 任务化 + 状态机 + 幂等 + 取消 | ✅ 31 passed（前端已改轮询，SSE 界面留给 M5） |
 | M2 | 队列 + worker + 缓存 + 故障恢复 | ✅ 44 passed + 故障注入脚本全绿 |
 | M3 | 可观测 + 测试补齐 | ✅ 56 passed / ruff clean / 日志链实测 |
-| M4 | CI + 容器 + 文档收尾 | ⬜ |
+| M4 | CI + 容器 + 文档收尾 | ✅ CI 本地同命令通过；容器 YAML 校验通过（构建未验证） |
 | M5 | 前端真进度与任务视图 | ⬜ |
 
 ## 设计依据（对照 AI-Agents-in-Depth）
@@ -92,9 +92,9 @@
 
 | JD 条目 | 交付物 | 验收 | 状态 |
 |---|---|---|---|
-| CI | GitHub Actions：`ruff` + `pytest` + `vue-tsc` + `vite build` | 本地跑同样命令通过；workflow 文件存在 | ⬜ |
-| 容器 | `backend/Dockerfile` + `docker-compose.yml`（api/worker/redis） | 文件存在；**本机无 Docker，标注未验证** | ⬜ |
-| 文档 | README 架构图 + 运行手册 + 本矩阵 | README 含 mermaid 架构图与故障注入说明 | ⬜ |
+| CI | GitHub Actions：`ruff` + `pytest` + `vue-tsc` + `vite build` + compose 语法 | `.github/workflows/ci.yml` 存在；本地逐条跑通：`ruff check` 0 问题、`pytest` 56 passed、`npm run build` 通过 | ✅ |
+| 容器 | `backend/Dockerfile` + `docker-compose.yml`（api/worker×2/redis） | 文件存在且 YAML 解析通过；**本机无 Docker，镜像构建未验证** | ✅ |
+| 文档 | README 架构图（mermaid）+ 运行手册 + 本矩阵 | README 含 mermaid 架构图、8 行排障表、指向 `docs/jd-fit.md` | ✅ |
 
 ## M5 前端
 
