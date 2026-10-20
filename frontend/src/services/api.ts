@@ -88,10 +88,10 @@ export async function cancelTask(taskId: string): Promise<TaskDetail> {
   }
 }
 
-const TERMINAL = ['succeeded', 'failed', 'canceled']
+const TERMINAL_STATUS = ['succeeded', 'failed', 'canceled']
 
 /**
- * 轮询直到任务结束；每次状态变化回调一次，用于驱动真实进度
+ * 轮询直到任务结束；每次轮询回调一次，SSE 不可用时作为降级方案
  */
 export async function waitForTask(
   taskId: string,
@@ -104,13 +104,81 @@ export async function waitForTask(
   while (Date.now() < deadline) {
     const task = await getTask(taskId)
     onUpdate?.(task)
-    if (TERMINAL.includes(task.status)) {
+    if (TERMINAL_STATUS.includes(task.status)) {
       return task
     }
     await new Promise((resolve) => setTimeout(resolve, intervalMs))
   }
 
   throw new Error('任务超时（4 分钟），可稍后到任务列表查看')
+}
+
+/**
+ * 任务列表
+ */
+export async function listTasks(status?: string, limit = 20): Promise<TaskDetail[]> {
+  try {
+    const response = await apiClient.get<TaskDetail[]>('/api/trip/tasks', {
+      params: { status: status || undefined, limit }
+    })
+    return response.data
+  } catch (error: any) {
+    throw toError(error, '查询任务列表失败')
+  }
+}
+
+const SSE_EVENTS = [
+  'task.created',
+  'task.running',
+  'task.resumed',
+  'task.step',
+  'task.cancel_requested',
+  'task.succeeded',
+  'task.failed',
+  'task.canceled',
+  'done',
+  'timeout',
+  'error'
+]
+
+/**
+ * 订阅任务事件流（SSE）
+ *
+ * 返回取消订阅的函数。连接异常时交给调用方决定是否降级成轮询。
+ */
+export function subscribeTaskEvents(
+  taskId: string,
+  handlers: {
+    onEvent?: (type: string, data: any) => void
+    onDone?: (status: string) => void
+    onError?: () => void
+  }
+): () => void {
+  const source = new EventSource(`${API_BASE_URL}/api/trip/tasks/${taskId}/events`)
+
+  for (const type of SSE_EVENTS) {
+    source.addEventListener(type, (event: MessageEvent) => {
+      let data: any = null
+      try {
+        data = JSON.parse(event.data)
+      } catch {
+        data = { raw: event.data }
+      }
+      handlers.onEvent?.(type, data)
+      if (type === 'done') {
+        handlers.onDone?.(data?.status || 'unknown')
+        source.close()
+      }
+    })
+  }
+
+  source.onerror = () => {
+    // 服务端会主动 close（正常结束），此时 readyState 是 CLOSED
+    if (source.readyState === EventSource.CLOSED) return
+    handlers.onError?.()
+  }
+
+  return () => source.close()
 }
 
 /**

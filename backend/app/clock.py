@@ -18,13 +18,20 @@ def utcnow() -> datetime:
 
 
 def iso(value: Optional[datetime]) -> Optional[str]:
-    """给 API 输出用；数据库里读出来的可能是 str（原生 SQL 路径）"""
+    """给 API 输出用：**必须带时区标记**
+
+    库里存的是朴素 UTC，如果直接 isoformat() 出去，浏览器会按本地时间解析，
+    结果就是"已运行 28800 秒"这种 8 小时偏差。所以这里补一个 Z。
+    原生 SQL 路径读回来的可能是字符串，那就原样返回。
+    """
     if value is None:
         return None
-    if hasattr(value, "isoformat"):
-        return value.isoformat()
-    text = str(value)
-    return text or None
+    if not hasattr(value, "isoformat"):
+        text = str(value)
+        return text or None
+    if getattr(value, "tzinfo", None) is None:
+        return value.isoformat() + "Z"
+    return value.isoformat()
 
 
 def minutes_ago(minutes: int) -> datetime:

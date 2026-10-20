@@ -13,6 +13,7 @@ from sqlalchemy import func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from ..clock import iso
 from ..models.schemas import TripRequest
 from ..models.tables import Task, TaskEvent, TaskStep, utcnow
 
@@ -272,9 +273,9 @@ def serialize(task: Task) -> Dict[str, Any]:
         "attempt_count": task.attempt_count,
         "elapsed_ms": task.elapsed_ms,
         "token_usage": task.token_usage,
-        "created_at": task.created_at.isoformat() if task.created_at else None,
-        "started_at": task.started_at.isoformat() if task.started_at else None,
-        "ended_at": task.ended_at.isoformat() if task.ended_at else None,
+        "created_at": iso(task.created_at),
+        "started_at": iso(task.started_at),
+        "ended_at": iso(task.ended_at),
         "steps": [
             {
                 "step": s.step,

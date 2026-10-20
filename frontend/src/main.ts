@@ -5,6 +5,8 @@ import 'ant-design-vue/dist/reset.css'
 import App from './App.vue'
 import Home from './views/Home.vue'
 import Result from './views/Result.vue'
+import Task from './views/Task.vue'
+import Tasks from './views/Tasks.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -18,6 +20,17 @@ const router = createRouter({
       path: '/result',
       name: 'Result',
       component: Result
+    },
+    {
+      path: '/tasks',
+      name: 'Tasks',
+      component: Tasks
+    },
+    {
+      path: '/task/:id',
+      name: 'Task',
+      component: Task,
+      props: true
     }
   ]
 })

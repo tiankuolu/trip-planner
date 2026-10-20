@@ -142,3 +142,19 @@ def test_serialize_includes_steps_and_plan(session, trip_request):
     assert data["status"] == store.PENDING
     assert data["steps"][0]["step"] == "景点搜索"
     assert data["plan"] == {"city": "杭州", "days": []}
+
+
+def test_serialized_timestamps_carry_timezone(session, trip_request):
+    """库里存朴素 UTC，出 API 必须带 Z，否则前端会按本地时间解析（差 8 小时）"""
+    from datetime import datetime
+
+    task, _ = store.create_task(session, trip_request, _payload(trip_request))
+    store.transition(session, task, store.RUNNING)
+    session.flush()
+
+    data = store.serialize(task)
+
+    assert data["created_at"].endswith("Z")
+    assert data["started_at"].endswith("Z")
+    parsed = datetime.fromisoformat(data["started_at"])
+    assert parsed.tzinfo is not None

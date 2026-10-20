@@ -265,7 +265,7 @@
 import { ref, reactive, watch, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { message } from 'ant-design-vue'
-import { generateTripPlan } from '@/services/api'
+import { submitTripPlan, makeIdempotencyKey } from '@/services/api'
 import type { TripFormData } from '@/types'
 import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'
@@ -354,33 +354,8 @@ const handleSubmit = async () => {
   }
 
   loading.value = true
-  loadingProgress.value = 5
-  loadingStatus.value = '已提交，等待执行...'
-
-  // 真实进度：由后端任务步骤驱动，不再是定时器假装
-  const stepLabels: Record<string, string> = {
-    景点搜索: '🔍 正在从高德搜索景点...',
-    天气查询: '🌤️ 正在查询真实天气...',
-    酒店搜索: '🏨 正在搜索酒店...',
-    行程规划: '📋 正在编排行程...',
-    完成: '✅ 生成完成'
-  }
-  const onTaskUpdate = (task: { status: string; steps: { step: string }[] }) => {
-    if (task.status === 'pending') {
-      loadingStatus.value = '排队中...'
-      loadingProgress.value = 10
-      return
-    }
-    if (task.status === 'running') {
-      const done = task.steps.length
-      loadingProgress.value = Math.min(95, 15 + done * 18)
-      const last = task.steps[task.steps.length - 1]
-      if (last) {
-        const key = Object.keys(stepLabels).find((k) => last.step.startsWith(k))
-        loadingStatus.value = key ? stepLabels[key] : `正在执行：${last.step}`
-      }
-    }
-  }
+  loadingProgress.value = 10
+  loadingStatus.value = '正在提交任务...'
 
   try {
     const requestData: TripFormData = {
@@ -397,41 +372,15 @@ const handleSubmit = async () => {
       free_text_input: formData.free_text_input
     }
 
-    const response = await generateTripPlan(requestData, onTaskUpdate)
-
+    // 提交后立刻返回 task_id，真正的进度在任务页看（SSE 推送）
+    const submitted = await submitTripPlan(requestData, makeIdempotencyKey(requestData))
     loadingProgress.value = 100
-    loadingStatus.value = '✅ 完成!'
+    loadingStatus.value = '✅ 已提交，正在跳转...'
 
-    if (response.success && response.data) {
-      // 保存到sessionStorage
-      sessionStorage.setItem('tripPlan', JSON.stringify(response.data))
-      // 存档后端返回的数据来源 / 降级信息，结果页据此提示
-      sessionStorage.setItem(
-        'tripPlanMeta',
-        JSON.stringify({
-          degraded: response.degraded || false,
-          warnings: response.warnings || [],
-          data_sources: response.data_sources || {},
-          elapsed_ms: response.elapsed_ms || 0,
-          task_id: response.task_id || null
-        })
-      )
-
-      if (response.degraded) {
-        message.warning(response.message || '部分数据未取到，已降级生成')
-      } else {
-        message.success('旅行计划生成成功!')
-      }
-
-      // 短暂延迟后跳转
-      setTimeout(() => {
-        router.push('/result')
-      }, 500)
-    } else {
-      message.error(response.message || '生成失败')
-    }
+    message.success(submitted.deduplicated ? '已复用 10 分钟内相同的任务' : '任务已提交')
+    router.push(`/task/${submitted.task_id}`)
   } catch (error: any) {
-    message.error(error.message || '生成旅行计划失败,请稍后重试')
+    message.error(error.message || '提交任务失败，请稍后重试')
   } finally {
     setTimeout(() => {
       loading.value = false
