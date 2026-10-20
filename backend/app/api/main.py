@@ -13,7 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from ..config import get_settings, print_config, validate_config
 from ..db import create_all, get_database_url
 from .routes import map as map_routes
-from .routes import poi, tasks, trip
+from .routes import metrics, poi, tasks, trip
 
 settings = get_settings()
 
@@ -74,6 +74,7 @@ app.include_router(trip.router, prefix="/api")
 app.include_router(tasks.router, prefix="/api")
 app.include_router(poi.router, prefix="/api")
 app.include_router(map_routes.router, prefix="/api")
+app.include_router(metrics.router)
 
 
 @app.get("/")

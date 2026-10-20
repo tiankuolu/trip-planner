@@ -12,6 +12,7 @@ from __future__ import annotations
 from typing import Any, Dict, List
 
 from ..services.amap_service import AmapError, get_amap_service
+from ..services.cache import cached
 
 # ---------------------------------------------------------------- 工具 schema
 
@@ -79,26 +80,28 @@ def _run_search_poi(args: Dict[str, Any]) -> Dict[str, Any]:
     if not city:
         raise AmapError("搜索景点缺少 city 参数")
 
-    service = get_amap_service()
-    pois = service.search_poi_raw(keywords, city, offset=10)
-    return {
-        "keywords": keywords,
-        "city": city,
-        "count": len(pois),
-        "pois": [
-            {
-                "name": p["name"],
-                "address": p["address"] or f"{p['cityname']}{p['adname']}",
-                "location": p["location"].model_dump(),
-                "type": p["type"],
-                "rating": p["rating"],
-                "tel": p["tel"],
-                "id": p["id"],
-            }
-            for p in pois
-            if p["name"]
-        ],
-    }
+    def produce() -> Dict[str, Any]:
+        pois = get_amap_service().search_poi_raw(keywords, city, offset=10)
+        return {
+            "keywords": keywords,
+            "city": city,
+            "count": len(pois),
+            "pois": [
+                {
+                    "name": p["name"],
+                    "address": p["address"] or f"{p['cityname']}{p['adname']}",
+                    "location": p["location"].model_dump(),
+                    "type": p["type"],
+                    "rating": p["rating"],
+                    "tel": p["tel"],
+                    "id": p["id"],
+                }
+                for p in pois
+                if p["name"]
+            ],
+        }
+
+    return cached("poi", f"poi:{city}:{keywords}", produce)
 
 
 def _run_search_hotel(args: Dict[str, Any]) -> Dict[str, Any]:
@@ -108,41 +111,48 @@ def _run_search_hotel(args: Dict[str, Any]) -> Dict[str, Any]:
     brand = str(args.get("brand", "") or "").strip()
     near = str(args.get("near", "") or "").strip()
 
-    service = get_amap_service()
-    queries = [q for q in (f"{brand}酒店" if brand else "", f"{near}酒店" if near else "", "酒店") if q]
+    def produce() -> Dict[str, Any]:
+        service = get_amap_service()
+        queries = [
+            q
+            for q in (f"{brand}酒店" if brand else "", f"{near}酒店" if near else "", "酒店")
+            if q
+        ]
 
-    merged: Dict[str, Dict[str, Any]] = {}
-    for query in dict.fromkeys(queries):
-        for poi in service.search_poi_raw(query, city, types="100000", offset=8):
-            if poi["name"] and poi["id"] not in merged:
-                merged[poi["id"]] = poi
-        if len(merged) >= 8:
-            break
+        merged: Dict[str, Dict[str, Any]] = {}
+        for query in dict.fromkeys(queries):
+            for poi in service.search_poi_raw(query, city, types="100000", offset=8):
+                if poi["name"] and poi["id"] not in merged:
+                    merged[poi["id"]] = poi
+            if len(merged) >= 8:
+                break
 
-    hotels = list(merged.values())[:8]
-    return {
-        "city": city,
-        "queries": queries,
-        "count": len(hotels),
-        "hotels": [
-            {
-                "name": p["name"],
-                "address": p["address"] or f"{p['cityname']}{p['adname']}",
-                "location": p["location"].model_dump(),
-                "rating": p["rating"],
-                "cost": p["cost"],
-                "id": p["id"],
-            }
-            for p in hotels
-        ],
-    }
+        hotels = list(merged.values())[:8]
+        return {
+            "city": city,
+            "queries": queries,
+            "count": len(hotels),
+            "hotels": [
+                {
+                    "name": p["name"],
+                    "address": p["address"] or f"{p['cityname']}{p['adname']}",
+                    "location": p["location"].model_dump(),
+                    "rating": p["rating"],
+                    "cost": p["cost"],
+                    "id": p["id"],
+                }
+                for p in hotels
+            ],
+        }
+
+    return cached("hotel", f"hotel:{city}:{brand}:{near}", produce)
 
 
 def _run_get_weather(args: Dict[str, Any]) -> Dict[str, Any]:
     city = str(args.get("city", "")).strip()
     if not city:
         raise AmapError("查询天气缺少 city 参数")
-    return get_amap_service().get_weather_raw(city)
+    return cached("weather", f"weather:{city}", lambda: get_amap_service().get_weather_raw(city))
 
 
 TOOLS: Dict[str, Dict[str, Any]] = {

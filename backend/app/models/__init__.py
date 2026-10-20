@@ -5,4 +5,11 @@
 """
 
 from . import schemas, tables  # noqa: F401
-from .tables import Task, TaskEvent, TaskStep  # noqa: F401
+from .tables import (  # noqa: F401
+    CacheCounter,
+    CacheEntry,
+    Job,
+    Task,
+    TaskEvent,
+    TaskStep,
+)

@@ -79,7 +79,15 @@ class TaskRunner:
             if task.cancel_requested:
                 store.transition(session, task, store.CANCELED, error_code="canceled_by_user")
                 return None, False
-            store.transition(session, task, store.RUNNING)
+
+            if task.status == store.RUNNING:
+                # worker 崩溃后重新领到同一个任务：这是"恢复"，不是首次执行
+                task.attempt_count += 1
+                store.append_event(
+                    session, task, "task.resumed", {"attempt": task.attempt_count}
+                )
+            else:
+                store.transition(session, task, store.RUNNING)
             return store.loads(task.request_json, {}), True
 
     def _record_step(self, task_id: str, entry: dict) -> None:

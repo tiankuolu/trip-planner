@@ -9,7 +9,7 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Optional
 
 from sqlalchemy import (
@@ -24,11 +24,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
+from ..clock import utcnow
 from ..db import Base
-
-
-def utcnow() -> datetime:
-    return datetime.now(timezone.utc)
 
 
 def new_id(prefix: str) -> str:
@@ -120,3 +117,59 @@ class TaskEvent(Base):
     task: Mapped[Task] = relationship(back_populates="events")
 
     __table_args__ = (UniqueConstraint("task_id", "seq", name="uq_task_events_task_seq"),)
+
+
+class Job(Base):
+    """队列作业
+
+    state 语义：
+      ready   可被 worker 领取（available_at 到点之后）
+      leased  已被某个 worker 领走，租约到期未 ack 视为 worker 崩溃
+      done    正常完成
+      dead    重试次数耗尽 → 死信，等人看
+    """
+
+    __tablename__ = "jobs"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    task_id: Mapped[str] = mapped_column(
+        String(40), ForeignKey("tasks.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    state: Mapped[str] = mapped_column(String(12), nullable=False, default="ready")
+    attempts: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    max_attempts: Mapped[int] = mapped_column(Integer, nullable=False, default=3)
+
+    available_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    lease_expires_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+    worker_id: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    last_error: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=utcnow, onupdate=utcnow
+    )
+
+    __table_args__ = (Index("ix_jobs_state_available", "state", "available_at"),)
+
+
+class CacheEntry(Base):
+    """外部接口结果缓存（高德 POI / 天气），按 TTL 过期"""
+
+    __tablename__ = "cache_entries"
+
+    key: Mapped[str] = mapped_column(String(200), primary_key=True)
+    kind: Mapped[str] = mapped_column(String(24), nullable=False, index=True)
+    value_json: Mapped[str] = mapped_column(Text, nullable=False)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class CacheCounter(Base):
+    """缓存命中/未命中计数（跨进程共享，/metrics 从这里读）"""
+
+    __tablename__ = "cache_counters"
+
+    name: Mapped[str] = mapped_column(String(32), primary_key=True)
+    value: Mapped[int] = mapped_column(Integer, nullable=False, default=0)

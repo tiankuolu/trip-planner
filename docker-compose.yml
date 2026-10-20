@@ -1,0 +1,63 @@
+# 容器化部署（未在本机验证：这台机器没有 Docker，见 docs/jd-fit.md）
+#
+#   docker compose up --build
+#
+# 三个服务：api（FastAPI）、worker（队列消费者）、redis（队列 broker）。
+# 数据库默认 SQLite，写在共享卷里；要换 MySQL 把 DATABASE_URL 指向外部实例即可。
+
+services:
+  api:
+    build: ./backend
+    environment:
+      EXECUTION_MODE: queue
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: sqlite+pysqlite:////data/app.db
+      LLM_API_KEY: ${LLM_API_KEY}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.deepseek.com}
+      LLM_MODEL_ID: ${LLM_MODEL_ID:-deepseek-chat}
+      LLM_THINKING: disabled
+      AMAP_API_KEY: ${AMAP_API_KEY}
+      CORS_ORIGINS: http://localhost:5300
+    ports:
+      - "8000:8000"
+    volumes:
+      - app-data:/data
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  worker:
+    build: ./backend
+    command: ["python", "-m", "app.worker"]
+    environment:
+      EXECUTION_MODE: queue
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: sqlite+pysqlite:////data/app.db
+      LLM_API_KEY: ${LLM_API_KEY}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.deepseek.com}
+      LLM_MODEL_ID: ${LLM_MODEL_ID:-deepseek-chat}
+      LLM_THINKING: disabled
+      AMAP_API_KEY: ${AMAP_API_KEY}
+      WORKER_LEASE_SECONDS: "120"
+    volumes:
+      - app-data:/data
+    depends_on:
+      - redis
+    deploy:
+      replicas: 2
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+
+volumes:
+  app-data:
+  redis-data:

@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import os
 from typing import Optional
 
 from fastapi import APIRouter, BackgroundTasks, Header, HTTPException
@@ -13,10 +14,19 @@ from fastapi import APIRouter, BackgroundTasks, Header, HTTPException
 from ...agents.trip_planner_agent import get_trip_planner_agent
 from ...db import session_scope
 from ...models.schemas import ErrorResponse, TaskSubmitResponse, TripRequest
+from ...queue import get_queue
 from ...repositories import task_store as store
 from ...services.task_runner import get_task_runner
 
 router = APIRouter(prefix="/trip", tags=["旅行规划"])
+
+EXECUTION_MODES = {"background", "queue"}
+
+
+def execution_mode() -> str:
+    """background=API 进程内后台执行（默认，本机无需额外进程）；queue=交给 worker"""
+    mode = os.getenv("EXECUTION_MODE", "background").strip().lower()
+    return mode if mode in EXECUTION_MODES else "background"
 
 
 @router.post(
@@ -51,7 +61,10 @@ def plan_trip(
         status = task.status
 
     if created:
-        background.add_task(_run_safely, task_id)
+        if execution_mode() == "queue":
+            get_queue().enqueue(task_id)
+        else:
+            background.add_task(_run_safely, task_id)
 
     base = f"/api/trip/tasks/{task_id}"
     return TaskSubmitResponse(
@@ -87,10 +100,14 @@ def health_check():
         raise HTTPException(status_code=503, detail=f"数据库不可用: {exc}") from exc
 
     database = "sqlite" if get_database_url().startswith("sqlite") else "mysql/other"
+    queue = get_queue()
     return {
         "status": "healthy",
         "service": "trip-planner",
         **info,
         "database": database,
+        "execution_mode": execution_mode(),
+        "queue_backend": type(queue).__name__,
+        "queue_stats": queue.stats(),
         "pending_tasks": pending,
     }

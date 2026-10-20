@@ -31,17 +31,35 @@ def db_url(tmp_path, monkeypatch):
 
 
 @pytest.fixture()
-def session(db_url):
-    """已建表、自动关事务的会话"""
-    from app.db import create_all, get_session_factory
+def database(db_url):
+    """建好表的空库；同时清掉队列单例，避免跨测试复用旧引擎"""
+    from app.db import create_all
+    from app.queue import reset_queue
 
+    reset_queue()
     create_all()
+    yield db_url
+    reset_queue()
+
+
+@pytest.fixture()
+def session(database):
+    """已建表、自动关事务的会话"""
+    from app.db import get_session_factory
+
     s = get_session_factory()()
     try:
         yield s
         s.commit()
     finally:
         s.close()
+
+
+@pytest.fixture()
+def queue(database):
+    from app.queue import SqliteQueue
+
+    return SqliteQueue(max_attempts=3)
 
 
 @pytest.fixture()

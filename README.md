@@ -91,10 +91,37 @@ python run.py
 启动后：
 
 - API 文档 <http://localhost:8000/docs>
-- 自检 <http://localhost:8000/api/trip/health> —— 列出当前可用工具、模型、高德 Key 是否就绪
+- 自检 <http://localhost:8000/api/trip/health> —— 工具、模型、Key、数据库、队列状态
+- 指标 <http://localhost:8000/metrics> —— Prometheus 文本
 
 > `LLM_THINKING=disabled`（默认）是给 DeepSeek 系模型用的：思考模式下不支持强制 `tool_choice`。
 > 换其他厂商端点时该参数会自动降级，不影响使用。
+
+### 队列与 worker（可选，但故障恢复要靠它）
+
+默认 `EXECUTION_MODE=background`：提交后由 API 进程内的后台任务执行，本机不用多开进程。
+
+想做真正的任务调度（多进程、重试、崩溃恢复），改成队列模式：
+
+```bash
+# 1) 后端启动时切换模式
+set EXECUTION_MODE=queue          # macOS/Linux: export EXECUTION_MODE=queue
+python run.py
+
+# 2) 另开一个窗口跑 worker
+python -m app.worker              # 常驻；--once 只处理一轮
+```
+
+队列默认走 SQLite（零依赖）；填了 `REDIS_URL` 就自动换成 Redis 实现，业务代码不变。
+
+**故障注入验收**（杀 worker 看任务能不能恢复）：
+
+```bash
+powershell -File scripts/fault_kill_worker.ps1
+```
+
+脚本会提交任务 → 等 worker 开始跑 → 强杀 worker → 等租约过期 → 重启 worker，
+最后断言：任务最终 `succeeded`、`attempt_count>=2`、事件流里有 `task.resumed`。
 
 ### 前端
 
@@ -121,29 +148,36 @@ Windows 一键启动：`start.bat`。
 
 | 方法 | 路径 | 说明 |
 |---|---|---|
-| POST | `/api/trip/plan` | 生成行程，返回 `data/degraded/warnings/trace/data_sources/elapsed_ms` |
-| GET | `/api/trip/health` | 工具、模型、Key 自检 |
+| POST | `/api/trip/plan` | 提交生成任务，**202** + `task_id`；支持 `Idempotency-Key` |
+| GET | `/api/trip/tasks` | 任务列表（可按状态过滤） |
+| GET | `/api/trip/tasks/{id}` | 任务状态、步骤、结果 |
+| GET | `/api/trip/tasks/{id}/events` | SSE 事件流，`Last-Event-ID` 断线续传 |
+| POST | `/api/trip/tasks/{id}/cancel` | 协作式取消 |
+| GET | `/api/trip/health` | 工具、模型、Key、数据库、队列自检 |
+| GET | `/metrics` | Prometheus 指标（队列深度、缓存命中率、任务分布） |
 | GET | `/api/map/poi` | POI 搜索（真实数据） |
 | GET | `/api/map/weather` | 天气预报（真实数据） |
 | GET | `/api/map/route-between` | 坐标间路线规划 |
 | GET | `/api/poi/photo` | 景点图片 |
 
-失败语义：上游不可用 → 502 带原因；数据不完整 → 200 但 `degraded=true`。
+失败语义：上游不可用 → 502 带原因；数据不完整 → 200 但 `degraded=true`；任务失败 → 任务状态 `failed` + `error.code`。
 
 ## 测试
 
 ```bash
 cd backend
-python -m pytest tests -q
+python -m pytest tests -q        # 44 passed
+powershell -File scripts/fault_kill_worker.ps1   # 故障注入（需要 EXECUTION_MODE=queue）
 ```
 
 ## 已知限制
 
 - **天气只有 4 天**：行程日期超出预报范围时 `weather_info` 留空并在 `warnings` 里说明，绝不编温度。
 - **高德不返回房价**：`estimated_cost` 是模型给的参考值（高德 `biz_ext.cost` 有值时会覆盖），前端应标注为参考价。
-- **无持久化**：结果存在浏览器 `sessionStorage`，刷新即丢，也没有任务 ID。
-- **同步请求**：一次生成 20-25 秒，前端进度条是估算值，不是真实进度。
-- **单机单进程**：没有队列/并发控制，多人同时点会比较慢。
+- **前端仍是轮询**：后端已提供 SSE，界面还没接（M5 待做），所以进度是"按秒轮询"而不是推送。
+- **Redis / Docker 未验证**：本机没有 Docker（WSL2 也无法启动），`RedisQueue` 与 `docker-compose.yml` 只有代码交付。
+- **没有鉴权**：单人本地使用；上线需要 JWT + 资源归属校验。
+- **单机 SQLite**：并发写入靠 WAL + busy_timeout，多机请换 MySQL/Postgres + Redis。
 
 ## 下一步（按性价比排序）
 

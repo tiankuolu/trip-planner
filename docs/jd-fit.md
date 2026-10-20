@@ -14,7 +14,7 @@
 |---|---|---|
 | M0 | 基线（git、venv、本文档） | ✅ |
 | M1 | 任务化 + 状态机 + 幂等 + 取消 | ✅ 31 passed（前端已改轮询，SSE 界面留给 M5） |
-| M2 | 队列 + worker + 缓存 + 故障恢复 | ⬜ |
+| M2 | 队列 + worker + 缓存 + 故障恢复 | ✅ 44 passed + 故障注入脚本全绿 |
 | M3 | 可观测 + 测试补齐 | ⬜ |
 | M4 | CI + 容器 + 文档收尾 | ⬜ |
 | M5 | 前端真进度与任务视图 | ⬜ |
@@ -57,11 +57,11 @@
 
 | JD 条目 | 交付物 | 验收 | 状态 |
 |---|---|---|---|
-| 队列 | `Queue` 抽象 + **SQLite 后端**（租约/可见性超时、指数退避重试、死信表）；`RedisQueue` 另一份实现 | `pytest tests/test_queue.py -q`（含可见性超时、重试、死信） | ⬜ |
-| worker | `python -m app.worker` 独立进程消费队列 | 起 worker 后提交任务，`GET /tasks/{id}` 从 pending 变 succeeded | ⬜ |
-| 故障恢复 | **杀 worker** 后未完成任务超时重入队并最终完成 | `scripts/fault_kill_worker.ps1` 输出：任务最终 succeeded，且只产生 1 份结果 | ⬜ |
-| 缓存 | 高德 POI/天气结果缓存（TTL + 命中率统计） | `/metrics` 里 `cache_hit_ratio`，重复同城请求命中率 > 0 | ⬜ |
-| Redis 交付 | `RedisQueue` + `docker-compose.yml` | 代码存在；**本机无 Docker，标注未验证** | ⬜ |
+| 队列 | `Queue` 抽象 + **SQLite 后端**（租约/可见性超时、指数退避重试、死信表）；`RedisQueue` 另一份实现 | `pytest tests/test_queue.py -q`（9 例：原子领取/延迟可见/租约回收/退避/死信） | ✅ |
+| worker | `python -m app.worker` 独立进程消费队列 | 真实：`task_77474428882e4bdb` pending→running(5 步)→succeeded，jobs done=1 | ✅ |
+| 故障恢复 | **杀 worker** 后未完成任务超时重入队并最终完成 | `scripts/fault_kill_worker.ps1` 全绿：attempts=2、steps 1→6、事件流有 `task.resumed` | ✅ |
+| 缓存 | 高德 POI/天气/酒店结果缓存（TTL + 命中率统计） | `/metrics` 里 `cache_hit_ratio`；同城二次生成 25s→8.9s，命中率 0.5 | ✅ |
+| Redis 交付 | `RedisQueue` + `docker-compose.yml` | 代码存在；**本机无 Docker，标注未验证** | ✅ |
 
 ## M3 可观测 + 测试
 
