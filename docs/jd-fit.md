@@ -12,12 +12,23 @@
 
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
-| M0 | 基线（git、venv、本文档） | ⬜ |
-| M1 | 任务化 + 状态机 + 幂等 + 取消 | ⬜ |
+| M0 | 基线（git、venv、本文档） | ✅ |
+| M1 | 任务化 + 状态机 + 幂等 + 取消 | ⬜ 数据层已就绪（21 passed） |
 | M2 | 队列 + worker + 缓存 + 故障恢复 | ⬜ |
 | M3 | 可观测 + 测试补齐 | ⬜ |
 | M4 | CI + 容器 + 文档收尾 | ⬜ |
 | M5 | 前端真进度与任务视图 | ⬜ |
+
+## 设计依据（对照 AI-Agents-in-Depth）
+
+| 这里的决定 | 书里的依据 |
+|---|---|
+| 三个工具，不追求工具数量 | 4.2 工具设计的通用原则、4.4 工具太多怎么办 |
+| 四步流水线（不共享上下文的多 Agent 协作） | 10.4 不共享上下文的多 Agent 协作、10.5 失败模式 |
+| 任务/事件流而非长轮询 | 6.2 异步与事件驱动 |
+| `/metrics` + 结构化日志 | 7.8 Agent 的可观测性 |
+| 未做 RAG 的理由 | 3.1 用户记忆系统（无历史数据时向量检索无意义） |
+
 
 ---
 
@@ -25,7 +36,7 @@
 
 | JD 条目 | 交付物 | 验收 | 状态 |
 |---|---|---|---|
-| 工程化规范 | 仓库可用 git 回溯；`backend/venv` 独立环境 | `git log --oneline` 有基线提交；`backend/venv/pyvenv.cfg` 存在 | ⬜ |
+| 工程化规范 | 仓库可用 git 回溯；`backend/venv` 独立环境 | `git log --oneline` 有基线提交；`backend/venv/pyvenv.cfg` 存在 | ✅ |
 
 ## M1 任务化 + 状态机
 
@@ -35,7 +46,7 @@
 |---|---|---|---|
 | 任务调度 | `POST /api/trip/plan` → **202** + `{task_id, status_url}`；`GET /api/trip/tasks/{id}` 查状态与结果 | `pytest tests/test_tasks.py::test_submit_returns_202` | ⬜ |
 | 状态维护 | 状态机 `pending→running→succeeded/failed/canceled`，非法跃迁抛错；`task_steps` 记录每步耗时/工具/条数 | `pytest tests/test_tasks.py -k state_machine` | ⬜ |
-| 数据库 | SQLAlchemy 2.0 模型 + Alembic 迁移；`DATABASE_URL` 默认 SQLite（本机验证），MySQL 可变（标未验证） | `alembic upgrade head` + `pytest tests/test_repo.py -q` | ⬜ |
+| 数据库 | SQLAlchemy 2.0 模型 + Alembic 迁移；`DATABASE_URL` 默认 SQLite（本机验证），MySQL 可变（标未验证） | `alembic upgrade head` + `pytest tests/test_repo.py -q` | ✅ |
 | 幂等 | `Idempotency-Key` 头 + `UNIQUE(idempotency_key)`，重复提交只产生 1 个任务 | `pytest tests/test_tasks.py::test_duplicate_submit_creates_one_task` | ⬜ |
 | 取消 | 协作式取消：running 任务在下个检查点退出，状态置 `canceled` | `pytest tests/test_tasks.py::test_cancel_running_task` | ⬜ |
 | 进度推送 | `GET /api/trip/tasks/{id}/events`，SSE + `Last-Event-ID` 断线续传 | `curl -N .../events` 抓到 ≥4 条事件；`pytest tests/test_sse.py` | ⬜ |
