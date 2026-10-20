@@ -112,5 +112,50 @@ export interface TripPlanResponse {
   warnings?: string[]
   data_sources?: Record<string, number>
   elapsed_ms?: number
+  task_id?: string
+}
+
+// ============ 任务化接口 ============
+
+export type TaskStatus = 'pending' | 'running' | 'succeeded' | 'failed' | 'canceled'
+
+export interface TaskStepView {
+  step: string
+  status: string
+  tool?: string | null
+  arguments?: Record<string, unknown> | null
+  item_count?: number | null
+  latency_ms: number
+  mode?: string | null
+  detail?: string | null
+}
+
+export interface TaskSubmitResponse {
+  task_id: string
+  status: TaskStatus
+  status_url: string
+  events_url: string
+  deduplicated: boolean
+}
+
+export interface TaskDetail {
+  task_id: string
+  status: TaskStatus
+  city: string
+  start_date: string
+  end_date: string
+  travel_days: number
+  degraded: boolean
+  warnings: string[]
+  data_sources: Record<string, number>
+  error?: { code?: string; message?: string } | null
+  attempt_count: number
+  elapsed_ms: number
+  token_usage: number
+  created_at?: string | null
+  started_at?: string | null
+  ended_at?: string | null
+  steps: TaskStepView[]
+  plan?: TripPlan
 }
 

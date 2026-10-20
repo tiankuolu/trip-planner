@@ -13,7 +13,7 @@
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
 | M0 | 基线（git、venv、本文档） | ✅ |
-| M1 | 任务化 + 状态机 + 幂等 + 取消 | ⬜ 数据层已就绪（21 passed） |
+| M1 | 任务化 + 状态机 + 幂等 + 取消 | ✅ 31 passed（前端已改轮询，SSE 界面留给 M5） |
 | M2 | 队列 + worker + 缓存 + 故障恢复 | ⬜ |
 | M3 | 可观测 + 测试补齐 | ⬜ |
 | M4 | CI + 容器 + 文档收尾 | ⬜ |
@@ -44,12 +44,12 @@
 
 | JD 条目 | 交付物 | 验收 | 状态 |
 |---|---|---|---|
-| 任务调度 | `POST /api/trip/plan` → **202** + `{task_id, status_url}`；`GET /api/trip/tasks/{id}` 查状态与结果 | `pytest tests/test_tasks.py::test_submit_returns_202` | ⬜ |
-| 状态维护 | 状态机 `pending→running→succeeded/failed/canceled`，非法跃迁抛错；`task_steps` 记录每步耗时/工具/条数 | `pytest tests/test_tasks.py -k state_machine` | ⬜ |
+| 任务调度 | `POST /api/trip/plan` → **202** + `{task_id, status_url}`；`GET /api/trip/tasks/{id}` 查状态与结果 | `pytest tests/test_tasks.py::test_submit_returns_202_with_task_id` | ✅ |
+| 状态维护 | 状态机 `pending→running→succeeded/failed/canceled`，非法跃迁抛错；`task_steps` 记录每步耗时/工具/条数 | `pytest tests/test_repo.py -k state_machine` + `test_task_succeeds_and_records_steps` | ✅ |
 | 数据库 | SQLAlchemy 2.0 模型 + Alembic 迁移；`DATABASE_URL` 默认 SQLite（本机验证），MySQL 可变（标未验证） | `alembic upgrade head` + `pytest tests/test_repo.py -q` | ✅ |
-| 幂等 | `Idempotency-Key` 头 + `UNIQUE(idempotency_key)`，重复提交只产生 1 个任务 | `pytest tests/test_tasks.py::test_duplicate_submit_creates_one_task` | ⬜ |
-| 取消 | 协作式取消：running 任务在下个检查点退出，状态置 `canceled` | `pytest tests/test_tasks.py::test_cancel_running_task` | ⬜ |
-| 进度推送 | `GET /api/trip/tasks/{id}/events`，SSE + `Last-Event-ID` 断线续传 | `curl -N .../events` 抓到 ≥4 条事件；`pytest tests/test_sse.py` | ⬜ |
+| 幂等 | `Idempotency-Key` 头 + `UNIQUE(idempotency_key)`，重复提交只产生 1 个任务 | `pytest tests/test_tasks.py::test_duplicate_submit_with_same_key_creates_one_task` | ✅ |
+| 取消 | 协作式取消：pending 立即取消；running 只打标记，检查点抛 `TaskCanceled` | `pytest tests/test_tasks.py -k cancel` | ✅ |
+| 进度推送 | `GET /api/trip/tasks/{id}/events`，SSE + `Last-Event-ID` 断线续传 | `pytest tests/test_tasks.py -k sse` + 真实 run 抓到 created→running→5×step→succeeded→done | ✅ |
 
 ## M2 队列 + worker + 缓存 + 故障恢复
 

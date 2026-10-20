@@ -160,12 +160,23 @@ def transition(
 
 
 def request_cancel(session: Session, task: Task) -> Task:
-    """协作式取消：标记 + 立即置终态（worker 在下个检查点看到标记会退出）"""
+    """协作式取消
+
+    - pending（还没开始跑）：直接置 canceled，不用等 worker；
+    - running：只打标记，worker 在下个检查点自己退出（不强行中断正在跑的 HTTP 调用）；
+    - 终态：幂等忽略。
+    """
     if task.status in TERMINAL:
         return task
+
     task.cancel_requested = True
     append_event(session, task, "task.cancel_requested", {"status": task.status})
-    return transition(session, task, CANCELED, error_code="canceled_by_user", error_message="用户取消")
+
+    if task.status == PENDING:
+        return transition(
+            session, task, CANCELED, error_code="canceled_by_user", error_message="用户取消"
+        )
+    return task
 
 
 def is_cancel_requested(session: Session, task_id: str) -> bool:
@@ -260,6 +271,7 @@ def serialize(task: Task) -> Dict[str, Any]:
         ),
         "attempt_count": task.attempt_count,
         "elapsed_ms": task.elapsed_ms,
+        "token_usage": task.token_usage,
         "token_usage": task.token_usage,
         "created_at": task.created_at.isoformat() if task.created_at else None,
         "started_at": task.started_at.isoformat() if task.started_at else None,

@@ -1,77 +1,96 @@
-"""旅行规划 API 路由
+"""旅行规划 API：提交任务 + 自检
 
-路由全部用同步 `def` 声明：编排流程内部是阻塞的（HTTP 调用 + LLM 调用），
-交给 FastAPI 的线程池执行，既能并行多个请求，也不会阻塞事件循环
-——这正是旧版本 "asyncio.run() cannot be called from a running event loop"
-的根因。
+`POST /api/trip/plan` 已改为**异步任务语义**（202 + task_id）：
+一次生成要 20 秒，同步接口会让浏览器和线程池都在等，而且没法重试、取消、恢复。
 """
 
-from fastapi import APIRouter, HTTPException
+from __future__ import annotations
 
-from ...agents.trip_planner_agent import PlanGenerationError, get_trip_planner_agent
-from ...models.schemas import ErrorResponse, TripPlanResponse, TripRequest
+from typing import Optional
+
+from fastapi import APIRouter, BackgroundTasks, Header, HTTPException
+
+from ...agents.trip_planner_agent import get_trip_planner_agent
+from ...db import session_scope
+from ...models.schemas import ErrorResponse, TaskSubmitResponse, TripRequest
+from ...repositories import task_store as store
+from ...services.task_runner import get_task_runner
 
 router = APIRouter(prefix="/trip", tags=["旅行规划"])
 
 
 @router.post(
     "/plan",
-    response_model=TripPlanResponse,
-    summary="生成旅行计划",
+    status_code=202,
+    response_model=TaskSubmitResponse,
+    summary="提交旅行规划任务（异步）",
     description=(
-        "根据用户输入生成旅行计划。景点/天气/酒店均来自高德真实数据，"
-        "坐标经过回填校验；任何步骤降级都会在 degraded / warnings 中体现。"
+        "提交后立刻返回 202 + task_id，用 `/api/trip/tasks/{task_id}` 查状态，"
+        "或订阅 `/api/trip/tasks/{task_id}/events` 拿实时进度。"
+        "带相同的 `Idempotency-Key` 重复提交只会产生一个任务。"
     ),
-    responses={502: {"model": ErrorResponse, "description": "模型或上游服务失败"}},
+    responses={422: {"model": ErrorResponse, "description": "参数不合法"}},
 )
-def plan_trip(request: TripRequest):
-    print(
-        f"\n[plan] city={request.city} {request.start_date}~{request.end_date} "
-        f"days={request.travel_days} prefs={request.preferences}"
+def plan_trip(
+    request: TripRequest,
+    background: BackgroundTasks,
+    idempotency_key: Optional[str] = Header(
+        None, alias="Idempotency-Key", description="幂等键，建议用前端生成的 UUID"
+    ),
+    x_request_id: Optional[str] = Header(None, alias="X-Request-Id"),
+):
+    with session_scope() as session:
+        task, created = store.create_task(
+            session,
+            request,
+            request.model_dump(),
+            idempotency_key=idempotency_key,
+            request_id=x_request_id,
+        )
+        task_id = task.id
+        status = task.status
+
+    if created:
+        background.add_task(_run_safely, task_id)
+
+    base = f"/api/trip/tasks/{task_id}"
+    return TaskSubmitResponse(
+        task_id=task_id,
+        status=status,
+        status_url=base,
+        events_url=f"{base}/events",
+        deduplicated=not created,
     )
 
+
+def _run_safely(task_id: str) -> None:
+    """后台执行：异常必须吞掉，否则会在响应已返回后炸在后台"""
     try:
-        result = get_trip_planner_agent().plan_trip(request)
-    except PlanGenerationError as exc:
-        print(f"❌ 行程生成失败: {exc}")
-        raise HTTPException(status_code=502, detail=str(exc)) from exc
-
-    sources = result.sources
-    print(
-        f"[plan] done in {result.elapsed_ms}ms "
-        f"attractions={sources.get('attractions')} "
-        f"grounded={sources.get('attractions_grounded')} "
-        f"weather={sources.get('weather')} "
-        f"hotels={sources.get('hotels')} "
-        f"warnings={len(result.warnings)}"
-    )
-
-    message = "旅行计划生成成功"
-    if result.degraded:
-        message = f"旅行计划生成成功（{len(result.warnings)} 项数据降级，详见 warnings）"
-
-    return TripPlanResponse(
-        success=True,
-        message=message,
-        data=result.plan,
-        degraded=result.degraded,
-        warnings=result.warnings,
-        trace=result.trace,
-        elapsed_ms=result.elapsed_ms,
-        data_sources=result.sources,
-    )
+        get_task_runner().execute(task_id)
+    except Exception as exc:  # noqa: BLE001 - 已落库的失败由 runner 负责，这里只兜底
+        print(f"❌ 任务执行异常 {task_id}: {exc}")
 
 
-@router.get(
-    "/health",
-    summary="健康检查",
-    description="检查模型配置、高德 Key 与可用工具",
-)
+@router.get("/health", summary="健康检查", description="检查模型配置、高德 Key、可用工具与数据库")
 def health_check():
     try:
-        agent = get_trip_planner_agent()
-        info = agent.health()
+        info = get_trip_planner_agent().health()
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=503, detail=f"服务不可用: {exc}") from exc
 
-    return {"status": "healthy", "service": "trip-planner", **info}
+    from ...db import get_database_url
+
+    try:
+        with session_scope() as session:
+            pending = len(store.list_tasks(session, store.PENDING, limit=100))
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(status_code=503, detail=f"数据库不可用: {exc}") from exc
+
+    database = "sqlite" if get_database_url().startswith("sqlite") else "mysql/other"
+    return {
+        "status": "healthy",
+        "service": "trip-planner",
+        **info,
+        "database": database,
+        "pending_tasks": pending,
+    }

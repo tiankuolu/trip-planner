@@ -354,26 +354,33 @@ const handleSubmit = async () => {
   }
 
   loading.value = true
-  loadingProgress.value = 0
-  loadingStatus.value = '正在初始化...'
+  loadingProgress.value = 5
+  loadingStatus.value = '已提交，等待执行...'
 
-  // 模拟进度更新
-  const progressInterval = setInterval(() => {
-    if (loadingProgress.value < 90) {
-      loadingProgress.value += 10
-
-      // 更新状态文本
-      if (loadingProgress.value <= 30) {
-        loadingStatus.value = '🔍 正在搜索景点...'
-      } else if (loadingProgress.value <= 50) {
-        loadingStatus.value = '🌤️ 正在查询天气...'
-      } else if (loadingProgress.value <= 70) {
-        loadingStatus.value = '🏨 正在推荐酒店...'
-      } else {
-        loadingStatus.value = '📋 正在生成行程计划...'
+  // 真实进度：由后端任务步骤驱动，不再是定时器假装
+  const stepLabels: Record<string, string> = {
+    景点搜索: '🔍 正在从高德搜索景点...',
+    天气查询: '🌤️ 正在查询真实天气...',
+    酒店搜索: '🏨 正在搜索酒店...',
+    行程规划: '📋 正在编排行程...',
+    完成: '✅ 生成完成'
+  }
+  const onTaskUpdate = (task: { status: string; steps: { step: string }[] }) => {
+    if (task.status === 'pending') {
+      loadingStatus.value = '排队中...'
+      loadingProgress.value = 10
+      return
+    }
+    if (task.status === 'running') {
+      const done = task.steps.length
+      loadingProgress.value = Math.min(95, 15 + done * 18)
+      const last = task.steps[task.steps.length - 1]
+      if (last) {
+        const key = Object.keys(stepLabels).find((k) => last.step.startsWith(k))
+        loadingStatus.value = key ? stepLabels[key] : `正在执行：${last.step}`
       }
     }
-  }, 500)
+  }
 
   try {
     const requestData: TripFormData = {
@@ -390,9 +397,8 @@ const handleSubmit = async () => {
       free_text_input: formData.free_text_input
     }
 
-    const response = await generateTripPlan(requestData)
+    const response = await generateTripPlan(requestData, onTaskUpdate)
 
-    clearInterval(progressInterval)
     loadingProgress.value = 100
     loadingStatus.value = '✅ 完成!'
 
@@ -406,7 +412,8 @@ const handleSubmit = async () => {
           degraded: response.degraded || false,
           warnings: response.warnings || [],
           data_sources: response.data_sources || {},
-          elapsed_ms: response.elapsed_ms || 0
+          elapsed_ms: response.elapsed_ms || 0,
+          task_id: response.task_id || null
         })
       )
 
@@ -424,7 +431,6 @@ const handleSubmit = async () => {
       message.error(response.message || '生成失败')
     }
   } catch (error: any) {
-    clearInterval(progressInterval)
     message.error(error.message || '生成旅行计划失败,请稍后重试')
   } finally {
     setTimeout(() => {

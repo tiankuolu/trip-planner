@@ -67,9 +67,15 @@ def get_settings() -> Settings:
 
 # 验证必要的配置
 def validate_config():
-    """验证配置是否完整"""
+    """验证配置是否完整
+
+    CI / 单元测试没有真实 key，用 SKIP_CONFIG_VALIDATION=1 跳过强校验。
+    """
     errors = []
     warnings = []
+
+    if os.getenv("SKIP_CONFIG_VALIDATION") == "1":
+        return True
 
     if not settings.amap_api_key:
         errors.append("AMAP_API_KEY未配置")

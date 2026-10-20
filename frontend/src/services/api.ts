@@ -1,11 +1,16 @@
 import axios from 'axios'
-import type { TripFormData, TripPlanResponse } from '@/types'
+import type {
+  TaskDetail,
+  TaskSubmitResponse,
+  TripFormData,
+  TripPlanResponse
+} from '@/types'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''  // 空字符串走Vite代理，避免CORS
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 600000, // 10分钟超时 (多轮LLM+MCP调用)
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json'
   }
@@ -35,34 +40,136 @@ apiClient.interceptors.response.use(
   }
 )
 
+function toError(error: any, fallback: string): Error {
+  if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
+    return new Error('无法连接到服务器，请确认后端已启动(端口8000)')
+  }
+  return new Error(error.response?.data?.detail || error.message || fallback)
+}
+
 /**
- * 生成旅行计划
+ * 提交生成任务（异步）：立刻拿到 task_id，不再等 20 秒
  */
-export async function generateTripPlan(formData: TripFormData): Promise<TripPlanResponse> {
+export async function submitTripPlan(
+  formData: TripFormData,
+  idempotencyKey?: string
+): Promise<TaskSubmitResponse> {
   try {
-    const response = await apiClient.post<TripPlanResponse>('/api/trip/plan', formData)
+    const response = await apiClient.post<TaskSubmitResponse>('/api/trip/plan', formData, {
+      headers: idempotencyKey ? { 'Idempotency-Key': idempotencyKey } : undefined
+    })
     return response.data
   } catch (error: any) {
-    console.error('生成旅行计划失败:', error)
-    if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
-      throw new Error('无法连接到服务器，请确认后端已启动(端口8000)')
-    }
-    throw new Error(error.response?.data?.detail || error.message || '生成旅行计划失败')
+    throw toError(error, '提交任务失败')
   }
 }
 
 /**
- * 健康检查
+ * 查询任务状态
  */
+export async function getTask(taskId: string): Promise<TaskDetail> {
+  try {
+    const response = await apiClient.get<TaskDetail>(`/api/trip/tasks/${taskId}`)
+    return response.data
+  } catch (error: any) {
+    throw toError(error, '查询任务失败')
+  }
+}
+
+/**
+ * 取消任务
+ */
+export async function cancelTask(taskId: string): Promise<TaskDetail> {
+  try {
+    const response = await apiClient.post<TaskDetail>(`/api/trip/tasks/${taskId}/cancel`)
+    return response.data
+  } catch (error: any) {
+    throw toError(error, '取消任务失败')
+  }
+}
+
+const TERMINAL = ['succeeded', 'failed', 'canceled']
+
+/**
+ * 轮询直到任务结束；每次状态变化回调一次，用于驱动真实进度
+ */
+export async function waitForTask(
+  taskId: string,
+  onUpdate?: (task: TaskDetail) => void,
+  intervalMs = 1000,
+  timeoutMs = 240000
+): Promise<TaskDetail> {
+  const deadline = Date.now() + timeoutMs
+
+  while (Date.now() < deadline) {
+    const task = await getTask(taskId)
+    onUpdate?.(task)
+    if (TERMINAL.includes(task.status)) {
+      return task
+    }
+    await new Promise((resolve) => setTimeout(resolve, intervalMs))
+  }
+
+  throw new Error('任务超时（4 分钟），可稍后到任务列表查看')
+}
+
+/**
+ * 兼容旧调用：提交 + 等待，返回与原来一致的 TripPlanResponse 结构
+ */
+export async function generateTripPlan(
+  formData: TripFormData,
+  onUpdate?: (task: TaskDetail) => void
+): Promise<TripPlanResponse> {
+  const submitted = await submitTripPlan(formData, makeIdempotencyKey(formData))
+  const task = await waitForTask(submitted.task_id, onUpdate)
+
+  if (task.status !== 'succeeded' || !task.plan) {
+    const reason = task.error?.message || `任务状态: ${task.status}`
+    throw new Error(reason)
+  }
+
+  return {
+    success: true,
+    message: task.degraded ? `生成成功（${task.warnings.length} 项数据降级）` : '生成成功',
+    data: task.plan,
+    degraded: task.degraded,
+    warnings: task.warnings,
+    data_sources: task.data_sources,
+    elapsed_ms: task.elapsed_ms,
+    task_id: task.task_id
+  }
+}
+
+/**
+ * 幂等键：同一份表单 10 分钟内重复点击不会重复生成
+ */
+export function makeIdempotencyKey(formData: TripFormData): string {
+  const raw = [
+    formData.city,
+    formData.start_date,
+    formData.end_date,
+    formData.travel_days,
+    formData.transportation,
+    formData.accommodation,
+    (formData.preferences || []).join(','),
+    formData.free_text_input
+  ].join('|')
+  const bucket = Math.floor(Date.now() / (10 * 60 * 1000))
+  let hash = 0
+  const text = `${raw}#${bucket}`
+  for (let i = 0; i < text.length; i++) {
+    hash = (hash * 31 + text.charCodeAt(i)) | 0
+  }
+  return `trip-${Math.abs(hash).toString(36)}`
+}
+
 export async function healthCheck(): Promise<any> {
   try {
     const response = await apiClient.get('/health')
     return response.data
   } catch (error: any) {
-    console.error('健康检查失败:', error)
-    throw new Error(error.message || '健康检查失败')
+    throw toError(error, '健康检查失败')
   }
 }
 
 export default apiClient
-

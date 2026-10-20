@@ -12,6 +12,12 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 
+@pytest.fixture(autouse=True)
+def _skip_config_validation(monkeypatch):
+    """测试环境没有真实 key：跳过启动时的强校验（LLM 警告仍会打印）"""
+    monkeypatch.setenv("SKIP_CONFIG_VALIDATION", "1")
+
+
 @pytest.fixture()
 def db_url(tmp_path, monkeypatch):
     """独立的临时库；测试结束后引擎丢弃"""

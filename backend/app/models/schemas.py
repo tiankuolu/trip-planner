@@ -219,6 +219,51 @@ class TraceStep(BaseModel):
     mode: Optional[str] = Field(default=None, description="function_call / text_fallback / json_object")
 
 
+# ============ 任务化接口 ============
+
+class TaskSubmitResponse(BaseModel):
+    """提交任务后的 202 响应"""
+    task_id: str = Field(..., description="任务 ID")
+    status: str = Field(..., description="当前状态，提交后为 pending")
+    status_url: str = Field(..., description="查询状态的地址")
+    events_url: str = Field(..., description="SSE 事件流地址")
+    deduplicated: bool = Field(default=False, description="是否命中幂等键（复用了已有任务）")
+
+
+class TaskStepView(BaseModel):
+    """任务步骤视图（落库的 trace 一条）"""
+    step: str
+    status: str
+    tool: Optional[str] = None
+    arguments: Optional[dict] = None
+    item_count: Optional[int] = None
+    latency_ms: int = 0
+    mode: Optional[str] = None
+    detail: Optional[str] = None
+
+
+class TaskDetailResponse(BaseModel):
+    """任务详情"""
+    task_id: str
+    status: str = Field(..., description="pending / running / succeeded / failed / canceled")
+    city: str
+    start_date: str
+    end_date: str
+    travel_days: int
+    degraded: bool = False
+    warnings: List[str] = Field(default_factory=list)
+    data_sources: dict = Field(default_factory=dict)
+    error: Optional[dict] = Field(default=None, description="失败原因 {code, message}")
+    attempt_count: int = 0
+    elapsed_ms: int = 0
+    token_usage: int = 0
+    created_at: Optional[str] = None
+    started_at: Optional[str] = None
+    ended_at: Optional[str] = None
+    steps: List[TaskStepView] = Field(default_factory=list)
+    plan: Optional["TripPlan"] = Field(default=None, description="成功后才有")
+
+
 class TripPlan(BaseModel):
     """旅行计划"""
     city: str = Field(..., description="目的地城市")

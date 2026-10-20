@@ -20,7 +20,7 @@ import math
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 from ..models.schemas import (
     Attraction,
@@ -40,6 +40,10 @@ from .tools import execute_tool, get_tool_schema, list_tools
 
 class PlanGenerationError(RuntimeError):
     """行程生成失败（会以明确的错误返回给前端，不再伪造数据）"""
+
+
+class TaskCanceled(RuntimeError):
+    """任务被用户取消：在检查点抛出，由 runner 落成 canceled 状态"""
 
 
 # ==================== 提示词 ====================
@@ -125,6 +129,7 @@ class PlanResult:
     trace: List[Dict[str, Any]] = field(default_factory=list)
     sources: Dict[str, int] = field(default_factory=dict)
     elapsed_ms: int = 0
+    token_usage: int = 0
 
     @property
     def degraded(self) -> bool:
@@ -213,6 +218,20 @@ class MultiAgentTripPlanner:
     def __init__(self) -> None:
         self.llm = get_llm()
         self.amap = get_amap_service()
+        self._on_step: Optional[Callable[[Dict[str, Any]], None]] = None
+        self._should_cancel: Optional[Callable[[], bool]] = None
+        self._token_usage = 0
+
+    # ---------------------------------------------------------------- 回调
+    def _emit(self, entry: Dict[str, Any]) -> None:
+        """把一步的执行记录交给上层（runner 会落库并推 SSE）"""
+        if self._on_step is not None:
+            self._on_step(entry)
+
+    def _check_cancel(self) -> None:
+        """检查点：用户取消就立刻退出，不等当前步骤跑完"""
+        if self._should_cancel is not None and self._should_cancel():
+            raise TaskCanceled("任务已被用户取消")
 
     # ---------------------------------------------------------------- 工具步
     def _tool_step(
@@ -225,6 +244,7 @@ class MultiAgentTripPlanner:
         count_key: str,
     ) -> Optional[Dict[str, Any]]:
         started = time.perf_counter()
+        self._check_cancel()
         try:
             arguments, meta = self.llm.call_with_tool(
                 system_prompt, user_prompt, get_tool_schema(tool_name)
@@ -232,32 +252,33 @@ class MultiAgentTripPlanner:
             data = execute_tool(tool_name, arguments)
         except (LLMError, AmapError, KeyError) as exc:
             elapsed = int((time.perf_counter() - started) * 1000)
-            result.trace.append(
-                {
-                    "step": step,
-                    "ok": False,
-                    "detail": str(exc),
-                    "tool": tool_name,
-                    "latency_ms": elapsed,
-                }
-            )
+            entry = {
+                "step": step,
+                "ok": False,
+                "detail": str(exc),
+                "tool": tool_name,
+                "latency_ms": elapsed,
+            }
+            result.trace.append(entry)
+            self._emit(entry)
             result.warnings.append(f"{step}失败：{exc}")
             return None
 
         count = int(data.get(count_key, 0)) if isinstance(data, dict) else 0
         elapsed = int((time.perf_counter() - started) * 1000)
-        result.trace.append(
-            {
-                "step": step,
-                "ok": True,
-                "tool": tool_name,
-                "arguments": arguments,
-                "item_count": count,
-                "latency_ms": elapsed,
-                "mode": meta.get("mode"),
-                "detail": f"{tool_name} 返回 {count} 条",
-            }
-        )
+        self._token_usage += int((meta.get("usage") or {}).get("total_tokens", 0))
+        entry = {
+            "step": step,
+            "ok": True,
+            "tool": tool_name,
+            "arguments": arguments,
+            "item_count": count,
+            "latency_ms": elapsed,
+            "mode": meta.get("mode"),
+            "detail": f"{tool_name} 返回 {count} 条",
+        }
+        result.trace.append(entry)
+        self._emit(entry)
         return data
 
     # ---------------------------------------------------------------- 步骤 1
@@ -399,6 +420,7 @@ class MultiAgentTripPlanner:
         }
 
         started = time.perf_counter()
+        self._check_cancel()
         try:
             data, meta = self.llm.call_json(
                 PLANNER_PROMPT,
@@ -406,25 +428,26 @@ class MultiAgentTripPlanner:
                 max_tokens=8000,
             )
         except LLMError as exc:
-            result.trace.append(
-                {
-                    "step": "行程规划",
-                    "ok": False,
-                    "detail": str(exc),
-                    "latency_ms": int((time.perf_counter() - started) * 1000),
-                }
-            )
+            entry = {
+                "step": "行程规划",
+                "ok": False,
+                "detail": str(exc),
+                "latency_ms": int((time.perf_counter() - started) * 1000),
+            }
+            result.trace.append(entry)
+            self._emit(entry)
             raise PlanGenerationError(f"行程规划失败：{exc}") from exc
 
-        result.trace.append(
-            {
-                "step": "行程规划",
-                "ok": True,
-                "latency_ms": int((time.perf_counter() - started) * 1000),
-                "mode": meta.get("mode"),
-                "detail": "模型输出 JSON 并完成校验",
-            }
-        )
+        self._token_usage += int((meta.get("usage") or {}).get("total_tokens", 0))
+        entry = {
+            "step": "行程规划",
+            "ok": True,
+            "latency_ms": int((time.perf_counter() - started) * 1000),
+            "mode": meta.get("mode"),
+            "detail": "模型输出 JSON 并完成校验",
+        }
+        result.trace.append(entry)
+        self._emit(entry)
 
         plan = self._validate(data, request, result)
         self._ground(plan, request, pois, hotels, forecasts, result)
@@ -576,9 +599,22 @@ class MultiAgentTripPlanner:
             result.warnings.append("模型未给出预算，已按门票+餐饮+住宿自动汇总")
 
     # ---------------------------------------------------------------- 主流程
-    def plan_trip(self, request: TripRequest) -> PlanResult:
+    def plan_trip(
+        self,
+        request: TripRequest,
+        on_step: Optional[Callable[[Dict[str, Any]], None]] = None,
+        should_cancel: Optional[Callable[[], bool]] = None,
+    ) -> PlanResult:
+        """跑完整条流水线
+
+        on_step       每完成一步回调一次（runner 用它落库 + 推 SSE）
+        should_cancel 每个检查点调用一次；返回 True 抛 TaskCanceled
+        """
         started = time.perf_counter()
         result = PlanResult(plan=None)  # type: ignore[arg-type]
+        self._on_step = on_step
+        self._should_cancel = should_cancel
+        self._token_usage = 0
 
         pois = self._step_attractions(request, result)
         forecasts = self._step_weather(request, result)
@@ -586,14 +622,15 @@ class MultiAgentTripPlanner:
         result.plan = self._step_plan(request, pois, forecasts, hotels, result)
 
         result.elapsed_ms = int((time.perf_counter() - started) * 1000)
-        result.trace.append(
-            {
-                "step": "完成",
-                "ok": True,
-                "latency_ms": result.elapsed_ms,
-                "detail": f"总计 {len(result.warnings)} 条降级提示",
-            }
-        )
+        result.token_usage = self._token_usage
+        entry = {
+            "step": "完成",
+            "ok": True,
+            "latency_ms": result.elapsed_ms,
+            "detail": f"总计 {len(result.warnings)} 条降级提示",
+        }
+        result.trace.append(entry)
+        self._emit(entry)
         return result
 
     # ---------------------------------------------------------------- 自检
