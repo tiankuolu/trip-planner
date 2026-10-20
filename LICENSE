@@ -1,0 +1,25 @@
+HelloAgents Trip Planner
+Copyright 2026 HelloAgents Trip Planner contributors
+SPDX-License-Identifier: CC-BY-NC-SA-4.0
+
+This project is an adaptation of material from:
+
+* Datawhale Hello-Agents: https://github.com/datawhalechina/Hello-Agents
+  (including its Chapter 13 intelligent travel assistant example)
+* jjyaoao/HelloAgents: https://github.com/jjyaoao/HelloAgents
+
+The original authors and contributors retain their respective rights.
+This adaptation is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International Public License.
+
+You are free to share and adapt this material for non-commercial purposes,
+provided that you give appropriate attribution, indicate changes, and
+distribute adaptations under the same license. No additional restrictions
+may be applied. The original authors and projects do not endorse this
+adaptation.
+
+Full license text:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+Human-readable summary:
+https://creativecommons.org/licenses/by-nc-sa/4.0/
