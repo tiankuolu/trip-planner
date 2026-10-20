@@ -14,6 +14,7 @@ from fastapi import APIRouter, BackgroundTasks, Header, HTTPException
 from ...agents.trip_planner_agent import get_trip_planner_agent
 from ...db import session_scope
 from ...models.schemas import ErrorResponse, TaskSubmitResponse, TripRequest
+from ...observability import log
 from ...queue import get_queue
 from ...repositories import task_store as store
 from ...services.task_runner import get_task_runner
@@ -81,7 +82,7 @@ def _run_safely(task_id: str) -> None:
     try:
         get_task_runner().execute(task_id)
     except Exception as exc:  # noqa: BLE001 - 已落库的失败由 runner 负责，这里只兜底
-        print(f"❌ 任务执行异常 {task_id}: {exc}")
+        log.exception("task.background_crashed", task_id=task_id, error=str(exc))
 
 
 @router.get("/health", summary="健康检查", description="检查模型配置、高德 Key、可用工具与数据库")

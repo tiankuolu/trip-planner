@@ -14,8 +14,7 @@ from __future__ import annotations
 
 import pytest
 
-from app.agents.trip_planner_agent import PlanGenerationError, TaskCanceled
-from app.agents.trip_planner_agent import PlanResult
+from app.agents.trip_planner_agent import PlanGenerationError, PlanResult, TaskCanceled
 from app.models.schemas import DayPlan, TripPlan
 from app.repositories import task_store as store
 from app.services.task_runner import TaskRunner

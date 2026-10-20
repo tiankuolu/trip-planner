@@ -1,53 +1,48 @@
 """FastAPI 主应用"""
 
 import sys
+import time
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
-# Windows 控制台默认 GBK，强制 UTF-8 避免打印 emoji 时崩溃
+# Windows 控制台默认 GBK，强制 UTF-8 避免日志里的中文/emoji 崩掉
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from ..config import get_settings, print_config, validate_config
 from ..db import create_all, get_database_url
+from ..observability import bind_request, configure_logging, log, new_request_id
 from .routes import map as map_routes
 from .routes import metrics, poi, tasks, trip
 
 settings = get_settings()
+configure_logging(settings.log_level)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-    """启动/关闭事件（替代已废弃的 on_event）"""
-    print("\n" + "=" * 60)
-    print(f"🚀 {settings.app_name} v{settings.app_version}")
-    print("=" * 60)
+    """启动/关闭事件"""
+    log.info("app.starting", app=settings.app_name, version=settings.app_version)
     print_config()
 
     try:
         validate_config()
-        print("\n✅ 配置验证通过")
+        log.info("config.validated")
     except ValueError as exc:
-        print(f"\n❌ 配置验证失败:\n{exc}")
+        log.error("config.invalid", error=str(exc))
         raise
 
-    # 建表（幂等）。本地开发不必先手动 alembic；生产发布走 `alembic upgrade head`
+    # 建表（幂等）。本地开发不必手动 alembic；生产发布走 `alembic upgrade head`
     create_all()
-    db = get_database_url()
-    print(f"🗄️  数据库: {'sqlite' if db.startswith('sqlite') else db.split(':')[0]}")
-
-    print("\n" + "=" * 60)
-    print("📚 API文档: http://localhost:8000/docs")
-    print("🔧 工具自检: http://localhost:8000/api/trip/health")
-    print("=" * 60 + "\n")
+    db_url = get_database_url()
+    log.info("db.ready", database="sqlite" if db_url.startswith("sqlite") else "external")
+    log.info("app.ready", docs="http://localhost:8000/docs", health="/api/trip/health")
 
     yield
 
-    print("\n" + "=" * 60)
-    print("👋 应用正在关闭...")
-    print("=" * 60 + "\n")
+    log.info("app.stopping")
 
 
 app = FastAPI(
@@ -55,7 +50,7 @@ app = FastAPI(
     version=settings.app_version,
     description=(
         "基于多 Agent 编排的旅行规划助手：景点/天气/酒店数据来自高德 Web 服务，"
-        "工具调用由本地执行并回填坐标。"
+        "工具调用由本地执行并回填坐标；生成走异步任务，支持查询/取消/SSE 进度。"
     ),
     docs_url="/docs",
     redoc_url="/redoc",
@@ -68,7 +63,33 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["X-Request-Id"],
 )
+
+
+@app.middleware("http")
+async def request_context(request: Request, call_next):
+    """给每个请求分配 request_id，并记录一条带耗时的访问日志"""
+    request_id = request.headers.get("X-Request-Id") or new_request_id()
+    status_code = 500
+    started = time.perf_counter()
+
+    with bind_request(request_id):
+        try:
+            response = await call_next(request)
+            status_code = response.status_code
+            response.headers["X-Request-Id"] = request_id
+            return response
+        finally:
+            elapsed_ms = int((time.perf_counter() - started) * 1000)
+            log.info(
+                "http.request",
+                method=request.method,
+                path=request.url.path,
+                status=status_code,
+                elapsed_ms=elapsed_ms,
+            )
+
 
 app.include_router(trip.router, prefix="/api")
 app.include_router(tasks.router, prefix="/api")

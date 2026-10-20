@@ -9,7 +9,6 @@ import re
 from typing import Any, List, Optional, Union
 
 from pydantic import BaseModel, Field, field_validator
-from datetime import date
 
 
 def _to_minutes(value: Any) -> int:

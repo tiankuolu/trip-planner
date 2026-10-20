@@ -3,17 +3,20 @@
 import os
 from pathlib import Path
 from typing import List
-from pydantic_settings import BaseSettings
+
 from dotenv import load_dotenv
+from pydantic_settings import BaseSettings
+
+from .observability import log
 
 # 加载环境变量
 # 首先尝试加载当前目录的.env
 load_dotenv()
 
-# 然后尝试加载HelloAgents的.env(如果存在)
+# 旧版 HelloAgents 的 .env 兼容加载（若存在），不覆盖已有值
 helloagents_env = Path(__file__).parent.parent.parent.parent / "HelloAgents" / ".env"
 if helloagents_env.exists():
-    load_dotenv(helloagents_env, override=False)  # 不覆盖已有的环境变量
+    load_dotenv(helloagents_env, override=False)
 
 
 class Settings(BaseSettings):
@@ -89,29 +92,28 @@ def validate_config():
         error_msg = "配置错误:\n" + "\n".join(f"  - {e}" for e in errors)
         raise ValueError(error_msg)
 
-    if warnings:
-        print("\n⚠️  配置警告:")
-        for w in warnings:
-            print(f"  - {w}")
+    for warning in warnings:
+        log.warning("config.warning", warning=warning)
 
     return True
 
 
-# 打印配置信息(用于调试)
 def print_config():
-    """打印当前配置(隐藏敏感信息)"""
-    print(f"应用名称: {settings.app_name}")
-    print(f"版本: {settings.app_version}")
-    print(f"服务器: {settings.host}:{settings.port}")
-    print(f"高德地图API Key: {'已配置' if settings.amap_api_key else '未配置'}")
-
-    # 检查LLM配置
+    """记录当前配置（隐藏敏感信息）"""
     llm_api_key = os.getenv("LLM_API_KEY") or os.getenv("OPENAI_API_KEY")
     llm_base_url = os.getenv("LLM_BASE_URL") or settings.openai_base_url
     llm_model = os.getenv("LLM_MODEL_ID") or settings.openai_model
 
-    print(f"LLM API Key: {'已配置' if llm_api_key else '未配置'}")
-    print(f"LLM Base URL: {llm_base_url}")
-    print(f"LLM Model: {llm_model}")
-    print(f"日志级别: {settings.log_level}")
+    log.info(
+        "config.loaded",
+        app=settings.app_name,
+        version=settings.app_version,
+        host=settings.host,
+        port=settings.port,
+        amap_key_configured=bool(settings.amap_api_key),
+        llm_key_configured=bool(llm_api_key),
+        llm_base_url=llm_base_url,
+        llm_model=llm_model,
+        log_level=settings.log_level,
+    )
 

@@ -5,7 +5,6 @@
 - 同一连锁的不同分店不能互相匹配（否则会把 A 店的地址安到 B 店头上）。
 """
 
-import math
 
 import pytest
 

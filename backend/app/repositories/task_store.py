@@ -272,7 +272,6 @@ def serialize(task: Task) -> Dict[str, Any]:
         "attempt_count": task.attempt_count,
         "elapsed_ms": task.elapsed_ms,
         "token_usage": task.token_usage,
-        "token_usage": task.token_usage,
         "created_at": task.created_at.isoformat() if task.created_at else None,
         "started_at": task.started_at.isoformat() if task.started_at else None,
         "ended_at": task.ended_at.isoformat() if task.ended_at else None,

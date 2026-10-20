@@ -7,11 +7,9 @@
 
 from __future__ import annotations
 
-import json
-import time
 import uuid
-from datetime import datetime, timedelta, timezone
-from typing import Any, Dict, Optional
+from datetime import datetime, timezone
+from typing import Dict, Optional
 
 from .base import DEAD, DONE, LEASED, READY, Job, Queue
 from .sqlite_queue import backoff_seconds

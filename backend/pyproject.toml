@@ -1,0 +1,25 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["venv", "migrations/versions", "data"]
+
+[tool.ruff.lint]
+# 只保留能抓真 bug 的规则：语法错、未定义名、未用导入、导入顺序、常见陷阱。
+# 不启用 UP（typing.Optional → X | None 这类重写），它只改风格不改行为，
+# 但会给每个文件制造几十处无意义 diff。
+select = ["E", "F", "I", "B"]
+ignore = [
+    "E501",   # 行宽由 formatter 管
+    "B008",   # 允许默认参数里调用（FastAPI 依赖注入常见写法）
+    "B904",   # raise ... from 不强制
+    "B905",   # zip 不强制 strict
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011", "B017"]
+# main.py 必须先 reconfigure(stdout) 再导入其它模块，否则 Windows 控制台编码会在导入期就炸
+"app/api/main.py" = ["E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

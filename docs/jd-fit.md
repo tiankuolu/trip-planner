@@ -15,7 +15,7 @@
 | M0 | 基线（git、venv、本文档） | ✅ |
 | M1 | 任务化 + 状态机 + 幂等 + 取消 | ✅ 31 passed（前端已改轮询，SSE 界面留给 M5） |
 | M2 | 队列 + worker + 缓存 + 故障恢复 | ✅ 44 passed + 故障注入脚本全绿 |
-| M3 | 可观测 + 测试补齐 | ⬜ |
+| M3 | 可观测 + 测试补齐 | ✅ 56 passed / ruff clean / 日志链实测 |
 | M4 | CI + 容器 + 文档收尾 | ⬜ |
 | M5 | 前端真进度与任务视图 | ⬜ |
 
@@ -69,9 +69,22 @@
 
 | JD 条目 | 交付物 | 验收 | 状态 |
 |---|---|---|---|
-| 日志 | 结构化日志，`request_id / task_id / step` 贯穿；替换现有 137 处 `print` | `grep -c "print(" backend/app` 降到个位数；一条日志能串起整次 run | ⬜ |
-| 指标 | `/metrics`：队列深度、任务 P50/P95、失败率、每步耗时、token 用量 | `curl /metrics` 有上述指标且非零 | ⬜ |
-| 测试 | pytest 覆盖路由/状态机/队列/幂等/SSE/回填匹配 | `pytest -q` 全绿，用例数 ≥ 30 | ⬜ |
+| 日志 | loguru JSON 行日志，`request_id / task_id / step` 用 ContextVar 贯穿；`print` 全部替换 | `grep -c "print(" backend/app` → **0**（改前 31 处）；一次真实 run 的日志链见下 | ✅ |
+| 指标 | `/metrics`：队列深度、任务 P50/P95、失败率、每步耗时、token 用量、缓存命中率 | 实测：`task_duration_ms{quantile="0.95"}=25612`、`task_tokens_total 34903`、`cache_hit_ratio 0.4706` | ✅ |
+| 测试 | pytest 覆盖路由/状态机/队列/幂等/SSE/回填匹配/指标 | `pytest -q` → **56 passed**（要求 ≥30），`ruff check` 全绿 | ✅ |
+
+**日志链实测**（同一次 run，跨 HTTP 请求与后台执行）：
+
+```
+22:01:41 INFO http.request   req=req_chain_demo status=202 elapsed=21ms
+22:01:41 INFO task.started   req=req_chain_demo task=task_c1a2547e24ea4f5e
+22:01:49 INFO pipeline.step  req=req_chain_demo task=task_c1a2547e24ea4f5e
+   ... 4 个 pipeline.step ...
+22:02:04 INFO task.succeeded req=req_chain_demo task=task_c1a2547e24ea4f5e elapsed=23224 tokens=6004
+```
+
+关键点：后台线程里没有 HTTP 上下文，`request_id` 是从 `tasks.request_id` 读回来再绑定的，
+所以后台任务、甚至独立 worker 进程里的日志，都能和最初那次请求串起来。
 
 ## M4 CI + 容器 + 文档
 

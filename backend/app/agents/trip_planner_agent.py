@@ -20,19 +20,18 @@ import math
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional
 
 from ..models.schemas import (
     Attraction,
     Budget,
     DayPlan,
-    Hotel,
     Location,
-    Meal,
     TripPlan,
     TripRequest,
     WeatherInfo,
 )
+from ..observability import bind_step, log
 from ..services.amap_service import AmapError, get_amap_service
 from ..services.llm_service import LLMError, get_llm
 from .tools import execute_tool, get_tool_schema, list_tools
@@ -224,7 +223,16 @@ class MultiAgentTripPlanner:
 
     # ---------------------------------------------------------------- 回调
     def _emit(self, entry: Dict[str, Any]) -> None:
-        """把一步的执行记录交给上层（runner 会落库并推 SSE）"""
+        """把一步的执行记录交给上层（runner 会落库并推 SSE），同时打一条结构化日志"""
+        with bind_step(str(entry.get("step", "-"))):
+            log.info(
+                "pipeline.step",
+                ok=bool(entry.get("ok", True)),
+                tool=entry.get("tool"),
+                items=entry.get("item_count"),
+                latency_ms=entry.get("latency_ms"),
+                mode=entry.get("mode"),
+            )
         if self._on_step is not None:
             self._on_step(entry)
 
@@ -498,7 +506,6 @@ class MultiAgentTripPlanner:
         matched_hotels = 0
         replaced_hotels = 0
         dropped = 0
-        city_center: Optional[Location] = None
 
         for day in plan.days:
             kept: List[Attraction] = []
@@ -665,12 +672,12 @@ def _rewrite_hotel_mentions(
         if name and name != chosen_name:
             replacements.add(name)
 
-    for field in ("description", "accommodation"):
-        text = getattr(day, field) or ""
+    for attr in ("description", "accommodation"):
+        text = getattr(day, attr) or ""
         for name in replacements:
             if name and name in text:
                 text = text.replace(name, chosen_name)
-        setattr(day, field, text)
+        setattr(day, attr, text)
 
 
 def _shift_date(start: str, days: int) -> str:
