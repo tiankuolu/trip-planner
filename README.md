@@ -233,7 +233,7 @@ Windows 一键启动：`start.bat`。
 
 ```bash
 cd backend
-python -m pytest tests -q        # 44 passed
+python -m pytest tests -q        # 57 passed
 powershell -File scripts/fault_kill_worker.ps1   # 故障注入（需要 EXECUTION_MODE=queue）
 ```
 
@@ -241,17 +241,15 @@ powershell -File scripts/fault_kill_worker.ps1   # 故障注入（需要 EXECUTI
 
 - **天气只有 4 天**：行程日期超出预报范围时 `weather_info` 留空并在 `warnings` 里说明，绝不编温度。
 - **高德不返回房价**：`estimated_cost` 是模型给的参考值（高德 `biz_ext.cost` 有值时会覆盖），前端应标注为参考价。
-- **前端仍是轮询**：后端已提供 SSE，界面还没接（M5 待做），所以进度是"按秒轮询"而不是推送。
 - **Redis / Docker 未验证**：本机没有 Docker（WSL2 也无法启动），`RedisQueue` 与 `docker-compose.yml` 只有代码交付。
 - **没有鉴权**：单人本地使用；上线需要 JWT + 资源归属校验。
 - **单机 SQLite**：并发写入靠 WAL + busy_timeout，多机请换 MySQL/Postgres + Redis。
 
 ## 下一步（按性价比排序）
 
-1. 任务化：`POST` 返回 `task_id`，`GET /api/trip/tasks/{id}` 轮询或 SSE 推进度（把进度条变成真的）。
-2. 持久化：SQLite 存任务与行程，状态机 `pending → running → succeeded/failed`。
-3. RAG：城市/场馆知识库 + 向量检索，把用户 `free_text_input` 与知识片段一起喂给规划步。
-4. 工程化：Dockerfile + GitHub Actions（`pytest` + `vue-tsc` + `vite build`）。
+1. RAG：城市/场馆知识库 + 向量检索，把用户 `free_text_input` 与知识片段一起喂给规划步。
+2. 鉴权：JWT + 资源归属校验，支持多人使用。
+3. MySQL / Redis 版本部署验证（依赖 Docker 环境）。
 
 ## 许可与致谢
 
