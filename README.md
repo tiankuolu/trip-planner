@@ -207,8 +207,11 @@ Windows 一键启动：`start.bat`。
 |---|---|
 | ![任务列表](docs/screenshots/tasks-list.png) | ![任务详情](docs/screenshots/task-done.png) |
 
+![行程结果](docs/screenshots/result.png)
+
 提交后立刻跳到 `/task/{id}`，进度由 SSE 推进；跑完自动进行程页。
 打开历史任务则停在时间线页（可看每步的工具、条数、耗时、模式），点"查看行程"再进结果页。
+地图只依赖行程坐标，所以先起地图、再并行拉图片和路线——不会为了等接口白屏十几秒。
 
 ## 运行手册（出问题先看这张表）
 

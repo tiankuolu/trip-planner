@@ -380,13 +380,14 @@ onMounted(async () => {
       }
     }
 
-    // 加载景点图片
-    await loadAttractionPhotos()
-    // 加载景点间出行规划
-    await loadDayRoutes()
-    // 等待DOM渲染完成后初始化地图
+    // 先把地图起来：它只依赖行程里的坐标，不该等图片和路线接口
+    // （之前顺序 await 了图片+路线，地图要白等十几秒才出现）
     await nextTick()
     initMap()
+
+    // 图片与路线并行加载，结果都是响应式的，不阻塞地图
+    void loadAttractionPhotos()
+    void loadDayRoutes()
   }
 })
 

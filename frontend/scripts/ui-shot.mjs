@@ -97,6 +97,7 @@ await sleep(1200)
 
 const shots = []
 let previous = 0
+let index = 0
 for (const delay of delays) {
   await sleep(Math.max(0, delay - previous))
   previous = delay
@@ -115,6 +116,7 @@ for (const delay of delays) {
         statusTag: (document.querySelector('.status-tag') || {}).innerText || null,
         steps: Array.from(document.querySelectorAll('.step-title')).map(el => el.innerText.trim()),
         hasPlanCard: document.body.innerHTML.includes('行程概览'),
+        mapCanvas: document.querySelectorAll('#amap-container canvas').length,
         snippet: text.slice(0, 160)
       })
     })()`,
@@ -129,6 +131,21 @@ for (const delay of delays) {
   }
 
   shots.push({ delay, path, ...parsed })
+
+  // 第一张拍完之后执行一次动作（例如点「查看行程」），用来验收需要跳转/交互的页面
+  if (index === 0 && process.env.ACTION_JS) {
+    try {
+      const action = await send('Runtime.evaluate', {
+        expression: process.env.ACTION_JS,
+        returnByValue: true,
+        awaitPromise: true
+      })
+      shots[0].action = action.result?.value ?? 'ok'
+    } catch (error) {
+      shots[0].actionError = String(error)
+    }
+  }
+  index += 1
 }
 
 socket.close()
@@ -139,7 +156,8 @@ console.log(
       url,
       shots,
       consoleErrors,
-      consoleMessageCount: consoleMessages.length
+      consoleMessageCount: consoleMessages.length,
+      consoleTail: consoleMessages.slice(-6)
     },
     null,
     2
