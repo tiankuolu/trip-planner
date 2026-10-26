@@ -33,29 +33,35 @@ jobs:
           pip install ruff pytest
 
       - name: 代码规范
-        run: ruff check app tests
+        run: ruff check app tests evaluations scripts/verify_evaluation.py scripts/export_evaluation.py scripts/complete_evaluation.py scripts/book_evaluation.py
 
       - name: 单元测试
         env:
-          # CI 没有真实 key：跳过启动时的强校验，测试全部走假服务，不联网
+          # CI执行工程测试和离线评测验证，不调用外部API。
           SKIP_CONFIG_VALIDATION: "1"
           LOG_JSON: "1"
-        run: python -m pytest -q
+        run: python -m pytest -q --basetemp=.evaluation-work/pytest
+
+      - name: Benchmark 构建验证
+        run: python -m evaluations build --output .evaluation-work/benchmark.json
 
   frontend:
-    name: frontend (vue-tsc + build)
+    name: frontend (${{ matrix.directory }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        directory: [frontend, frontend-react]
     defaults:
       run:
-        working-directory: frontend
+        working-directory: ${{ matrix.directory }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: ${{ matrix.directory }}/package-lock.json
 
       - name: 安装依赖
         run: npm ci

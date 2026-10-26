@@ -3,6 +3,7 @@
 import sys
 import time
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import AsyncIterator
 
 # Windows 控制台默认 GBK，强制 UTF-8 避免日志里的中文/emoji 崩掉
@@ -10,12 +11,14 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from ..config import get_settings, print_config, validate_config
 from ..db import create_all, get_database_url
 from ..observability import bind_request, configure_logging, log, new_request_id
 from .routes import map as map_routes
-from .routes import metrics, poi, tasks, trip
+from .routes import metrics, poi, tasks, trip, workbench
 
 settings = get_settings()
 configure_logging(settings.log_level)
@@ -96,17 +99,15 @@ app.include_router(tasks.router, prefix="/api")
 app.include_router(poi.router, prefix="/api")
 app.include_router(map_routes.router, prefix="/api")
 app.include_router(metrics.router)
+app.include_router(workbench.router)
+FRONTEND_DIST = Path(__file__).resolve().parents[3] / "frontend-react" / "dist"
+if (FRONTEND_DIST / "assets").is_dir():
+    app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="react-assets")
 
 
 @app.get("/")
 def root():
-    return {
-        "name": settings.app_name,
-        "version": settings.app_version,
-        "status": "running",
-        "docs": "/docs",
-        "redoc": "/redoc",
-    }
+    return FileResponse(FRONTEND_DIST / "index.html")
 
 
 @app.get("/health")

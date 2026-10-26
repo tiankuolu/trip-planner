@@ -1,0 +1,313 @@
+{
+  "repeats": {
+    "C": {
+      "repeat_count": 3,
+      "tasks": 20,
+      "any_pass": {
+        "pass": 16,
+        "fail": 4,
+        "unverifiable": 0,
+        "samples": 20,
+        "confirmed_rate": 0.8,
+        "identification_bounds": [
+          0.8,
+          0.8
+        ]
+      },
+      "all_pass": {
+        "pass": 11,
+        "fail": 9,
+        "unverifiable": 0,
+        "samples": 20,
+        "confirmed_rate": 0.55,
+        "identification_bounds": [
+          0.55,
+          0.55
+        ]
+      }
+    },
+    "W": {
+      "repeat_count": 3,
+      "tasks": 20,
+      "any_pass": {
+        "pass": 16,
+        "fail": 4,
+        "unverifiable": 0,
+        "samples": 20,
+        "confirmed_rate": 0.8,
+        "identification_bounds": [
+          0.8,
+          0.8
+        ]
+      },
+      "all_pass": {
+        "pass": 14,
+        "fail": 6,
+        "unverifiable": 0,
+        "samples": 20,
+        "confirmed_rate": 0.7,
+        "identification_bounds": [
+          0.7,
+          0.7
+        ]
+      }
+    }
+  },
+  "primary_comparison": {
+    "control": "C",
+    "treatment": "W",
+    "paired_tasks": 20,
+    "paired_runs": 60,
+    "control_statuses": {
+      "pass": 42,
+      "fail": 18,
+      "unverifiable": 0,
+      "samples": 60,
+      "confirmed_rate": 0.7,
+      "identification_bounds": [
+        0.7,
+        0.7
+      ]
+    },
+    "treatment_statuses": {
+      "pass": 45,
+      "fail": 15,
+      "unverifiable": 0,
+      "samples": 60,
+      "confirmed_rate": 0.75,
+      "identification_bounds": [
+        0.75,
+        0.75
+      ]
+    },
+    "confirmed_rate_difference": 0.05,
+    "paired_task_bootstrap_95": [
+      -0.03333333333333334,
+      0.15000000000000002
+    ],
+    "category_cluster_bootstrap_95": [
+      5.551115123125783e-18,
+      0.1
+    ],
+    "category_clusters": 2,
+    "unknown_identification_difference_bounds": [
+      0.050000000000000044,
+      0.050000000000000044
+    ],
+    "mcnemar_all_pass": {
+      "eligible_tasks": 20,
+      "excluded_tasks": 0,
+      "lost": 1,
+      "gained": 4,
+      "p_value": 0.375
+    },
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20261024
+  },
+  "categories": {
+    "daily_count": {
+      "control": "C",
+      "treatment": "W",
+      "paired_tasks": 10,
+      "paired_runs": 30,
+      "control_statuses": {
+        "pass": 26,
+        "fail": 4,
+        "unverifiable": 0,
+        "samples": 30,
+        "confirmed_rate": 0.8666666666666667,
+        "identification_bounds": [
+          0.8666666666666667,
+          0.8666666666666667
+        ]
+      },
+      "treatment_statuses": {
+        "pass": 29,
+        "fail": 1,
+        "unverifiable": 0,
+        "samples": 30,
+        "confirmed_rate": 0.9666666666666667,
+        "identification_bounds": [
+          0.9666666666666667,
+          0.9666666666666667
+        ]
+      },
+      "confirmed_rate_difference": 0.1,
+      "paired_task_bootstrap_95": [
+        -0.03333333333333334,
+        0.2666666666666667
+      ],
+      "category_cluster_bootstrap_95": [
+        0.1,
+        0.1
+      ],
+      "category_clusters": 1,
+      "unknown_identification_difference_bounds": [
+        0.09999999999999998,
+        0.09999999999999998
+      ],
+      "mcnemar_all_pass": {
+        "eligible_tasks": 10,
+        "excluded_tasks": 0,
+        "lost": 1,
+        "gained": 3,
+        "p_value": 0.625
+      },
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20261024
+    },
+    "faults": {
+      "control": "C",
+      "treatment": "W",
+      "paired_tasks": 10,
+      "paired_runs": 30,
+      "control_statuses": {
+        "pass": 16,
+        "fail": 14,
+        "unverifiable": 0,
+        "samples": 30,
+        "confirmed_rate": 0.5333333333333333,
+        "identification_bounds": [
+          0.5333333333333333,
+          0.5333333333333333
+        ]
+      },
+      "treatment_statuses": {
+        "pass": 16,
+        "fail": 14,
+        "unverifiable": 0,
+        "samples": 30,
+        "confirmed_rate": 0.5333333333333333,
+        "identification_bounds": [
+          0.5333333333333333,
+          0.5333333333333333
+        ]
+      },
+      "confirmed_rate_difference": 5.551115123125783e-18,
+      "paired_task_bootstrap_95": [
+        -0.1,
+        0.1
+      ],
+      "category_cluster_bootstrap_95": [
+        5.551115123125783e-18,
+        5.551115123125783e-18
+      ],
+      "category_clusters": 1,
+      "unknown_identification_difference_bounds": [
+        0.0,
+        0.0
+      ],
+      "mcnemar_all_pass": {
+        "eligible_tasks": 10,
+        "excluded_tasks": 0,
+        "lost": 0,
+        "gained": 1,
+        "p_value": 1.0
+      },
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20261024
+    }
+  },
+  "metrics": {
+    "C": {
+      "samples": 60,
+      "verifiable_samples": 60,
+      "unverifiable_samples": 0,
+      "model_invoked_samples": 60,
+      "preflight_only_samples": 0,
+      "task_success_rate": 0.7,
+      "success_fraction_all": 0.7,
+      "constraint_satisfaction_rate": 0.9076923076923077,
+      "constraint_counts": {
+        "pass": 177,
+        "fail": 18
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 331
+      },
+      "tool_error_rate": 0.11165048543689321,
+      "fault_exposed_samples": 30,
+      "recovery_unverifiable_samples": 0,
+      "recovery_rate": 0.5333333333333333,
+      "response_counts": {
+        "plan": 45,
+        "clarification": 11,
+        "infeasible": 4
+      },
+      "decision_sources": {
+        "none": 60
+      },
+      "plan_task_success_rate": 0.7,
+      "decision_task_success_rate": null,
+      "average_wall_latency_ms": 28730.17145499992,
+      "average_latency_ms": 15583.82157833336,
+      "average_tool_calls": 3.433333333333333,
+      "token_usage": null,
+      "token_observed_samples": 55,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 18,
+        "planning_failure": 15,
+        "recovery_failure": 14,
+        "timeout": 6
+      },
+      "error_proportions": {
+        "constraint_violation": 0.3,
+        "planning_failure": 0.25,
+        "recovery_failure": 0.23333333333333334,
+        "timeout": 0.1
+      }
+    },
+    "W": {
+      "samples": 60,
+      "verifiable_samples": 60,
+      "unverifiable_samples": 0,
+      "model_invoked_samples": 60,
+      "preflight_only_samples": 0,
+      "task_success_rate": 0.75,
+      "success_fraction_all": 0.75,
+      "constraint_satisfaction_rate": 0.9295774647887324,
+      "constraint_counts": {
+        "pass": 198,
+        "fail": 15
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 369
+      },
+      "tool_error_rate": 0.11483253588516747,
+      "fault_exposed_samples": 30,
+      "recovery_unverifiable_samples": 0,
+      "recovery_rate": 0.5333333333333333,
+      "response_counts": {
+        "plan": 51,
+        "infeasible": 6,
+        "clarification": 3
+      },
+      "decision_sources": {
+        "none": 60
+      },
+      "plan_task_success_rate": 0.75,
+      "decision_task_success_rate": null,
+      "average_wall_latency_ms": 27815.552064999854,
+      "average_latency_ms": 14750.574283332995,
+      "average_tool_calls": 3.4833333333333334,
+      "token_usage": null,
+      "token_observed_samples": 58,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 15,
+        "planning_failure": 9,
+        "recovery_failure": 14,
+        "timeout": 6
+      },
+      "error_proportions": {
+        "constraint_violation": 0.25,
+        "planning_failure": 0.15,
+        "recovery_failure": 0.23333333333333334,
+        "timeout": 0.1
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "evaluation_version": "2.0.0",
+  "created_at": "2026-10-23T13:28:00.105109+00:00",
+  "config": {
+    "strategies": [
+      "A",
+      "B",
+      "C"
+    ],
+    "repeats": 2,
+    "temperature": 0.0,
+    "parallelism": 6,
+    "seed": 42,
+    "timeout_seconds": 180.0,
+    "input_cost_per_million": null,
+    "output_cost_per_million": null,
+    "price_source": null
+  },
+  "benchmark_hash": "55cb6c564c80d1730b68d1a060731230439d7619c20037049aa6a58272e1b542",
+  "snapshot_hash": "2a2b93e08fd80c89248ce25705701097d03c766f553ea2d9931280be40387b59",
+  "source_hash": "263545d2e55eda9c91ced06f924f9bd10b7a797334e26469f4a694e11507ba7f",
+  "git_commit": "8e2a8003f416d3cdebb5c86bb16164afeb717321",
+  "prompt_hash": "2f039d645e81692ca98a973fe882f3e7a1712070bb7e2282a512f83be0f10c52",
+  "python": "3.11.9",
+  "dependencies": {
+    "openai": "2.48.0",
+    "httpx": "0.28.1",
+    "pydantic": "2.13.4",
+    "jsonschema": "4.26.0"
+  },
+  "execution": "isolated_process_direct_agent",
+  "infrastructure_retries": 0
+}

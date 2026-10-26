@@ -1,0 +1,6902 @@
+[
+  {
+    "task_id": "basic-01",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划北京1日旅行，日期从2026-10-26至2026-10-26，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-26",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京1日旅行，日期从2026-10-26至2026-10-26，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-02",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划杭州1日旅行，日期从2026-10-27至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-27",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州1日旅行，日期从2026-10-27至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-03",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划北京1日旅行，日期从2026-10-28至2026-10-28，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-28",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京1日旅行，日期从2026-10-28至2026-10-28，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-04",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划杭州1日旅行，日期从2026-10-29至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-29",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州1日旅行，日期从2026-10-29至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-05",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划北京1日旅行，日期从2026-10-30至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-10-30",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京1日旅行，日期从2026-10-30至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-06",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划杭州1日旅行，日期从2026-10-31至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-10-31",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州1日旅行，日期从2026-10-31至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-07",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划北京1日旅行，日期从2026-11-01至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-01",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京1日旅行，日期从2026-11-01至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-08",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划杭州1日旅行，日期从2026-11-02至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-02",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州1日旅行，日期从2026-11-02至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-09",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划北京1日旅行，日期从2026-11-03至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-03",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京1日旅行，日期从2026-11-03至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "basic-10",
+    "category": "basic",
+    "difficulty": "easy",
+    "user_query": "请规划杭州1日旅行，日期从2026-11-04至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-04",
+      "travel_days": 1,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州1日旅行，日期从2026-11-04至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-01",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-02",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-03",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-04",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-05",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-06",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-07",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-08",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-09",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "multi_day-10",
+    "category": "multi_day",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-01",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过300元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过300元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 300,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-02",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过300元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过300元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 300,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-03",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过800元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过800元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 800,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-04",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过800元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过800元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 800,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-05",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过1500元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过1500元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 1500,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-06",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过1500元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过1500元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 1500,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-07",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过2500元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过2500元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 2500,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-08",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过2500元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过2500元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 2500,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-09",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过4000元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过4000元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 4000,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "budget-10",
+    "category": "budget",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过4000元。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。全部费用合计不超过4000元。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "budget",
+        "value": 4000,
+        "source": "snapshot.evidence.prices + raw_plan.travelers + final_plan",
+        "rule": "按日期、人数和房间数计算所有费用；任何缺失报价为无法验证",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-01",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-02",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-03",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-04",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-05",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-06",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-07",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-08",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "required_pois-09",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览不存在的星际旅行博物馆。如果查询不到，请说明查询范围并询问我是否需要更正名称，不要编造地点或替换成其他地点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览不存在的星际旅行博物馆。如果查询不到，请说明查询范围并询问我是否需要更正名称，不要编造地点或替换成其他地点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "不存在的星际旅行博物馆"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "clarification"
+  },
+  {
+    "task_id": "required_pois-10",
+    "category": "required_pois",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览不存在的星际旅行博物馆。如果查询不到，请说明查询范围并询问我是否需要更正名称，不要编造地点或替换成其他地点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览不存在的星际旅行博物馆。如果查询不到，请说明查询范围并询问我是否需要更正名称，不要编造地点或替换成其他地点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "不存在的星际旅行博物馆"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "clarification"
+  },
+  {
+    "task_id": "daily_count-01",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天必须安排1个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天必须安排1个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          1
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有1个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-02",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天必须安排2个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天必须安排2个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          2,
+          2
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有2个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-03",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天必须安排3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天必须安排3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          3,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-04",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天必须安排4个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天必须安排4个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          4,
+          4
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有4个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-05",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天必须安排1个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天必须安排1个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          1
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有1个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-06",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天必须安排2个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天必须安排2个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          2,
+          2
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有2个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-07",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天必须安排3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天必须安排3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          3,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-08",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天必须安排4个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天必须安排4个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          4,
+          4
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有4个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-09",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天必须安排1个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天必须安排1个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          1
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有1个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "daily_count-10",
+    "category": "daily_count",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天必须安排2个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天必须安排2个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          2,
+          2
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天恰好有2个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-01",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-02",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-03",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-04",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-05",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-06",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-07",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-08",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-09",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "opening-10",
+    "category": "opening",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。所有景点必须在到访日期开放。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "opening",
+        "value": true,
+        "source": "snapshot.evidence.opening + final_plan.days",
+        "rule": "每个到访日期必须有开放证据并处于开放日期内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "infeasible-01",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-02",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-03",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-04",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-05",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-06",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-07",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-08",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-09",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "infeasible-10",
+    "category": "infeasible",
+    "difficulty": "hard",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天必须至少安排4个景点，同时每天最多安排1个景点。若无法同时满足，请明确说明冲突。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "infeasible",
+        "value": {
+          "min": 4,
+          "max": 1
+        },
+        "source": "request contradiction + raw_plan.infeasible/reason",
+        "rule": "标记infeasible=true并说明每天至少4个和最多1个之间的冲突；不得提供假装满足的行程",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "infeasible"
+  },
+  {
+    "task_id": "faults-01",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "timeout",
+      "tool": "amap_search_poi",
+      "occurrences": [
+        1
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-02",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "weather_error",
+      "tool": "amap_get_weather",
+      "occurrences": [
+        1
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-03",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "hotel_empty",
+      "tool": "amap_search_hotel",
+      "occurrences": [
+        1
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-04",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "poi_empty",
+      "tool": "amap_search_poi",
+      "occurrences": [
+        1
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-05",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "invalid_fields",
+      "tool": "amap_search_poi",
+      "occurrences": [
+        1
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-06",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "network",
+      "tool": "amap_search_poi",
+      "occurrences": [
+        1
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-07",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "timeout",
+      "tool": "amap_search_poi",
+      "occurrences": [
+        1,
+        2,
+        3
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-08",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "hotel_empty",
+      "tool": "amap_search_hotel",
+      "occurrences": [
+        1,
+        2,
+        3
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-09",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "poi_empty",
+      "tool": "amap_search_poi",
+      "occurrences": [
+        1,
+        2,
+        3
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "faults-10",
+    "category": "faults",
+    "difficulty": "hard",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": {
+      "kind": "network",
+      "tool": "amap_search_poi",
+      "occurrences": [
+        1,
+        2,
+        3
+      ]
+    },
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-01",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-02",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-03",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-04",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-05",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-06",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-07",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-08",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-09",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览故宫博物院。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "故宫博物院"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "time_window-10",
+    "category": "time_window",
+    "difficulty": "hard",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。必须游览西湖。仅在09:00至17:00游览，请提供每个景点的开始时间和结束时间。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "required_pois",
+        "value": [
+          "西湖"
+        ],
+        "source": "final_plan.attractions + snapshot POI",
+        "rule": "必选地点精确匹配冻结目录名称或有证据的别名",
+        "hard": true
+      },
+      {
+        "kind": "visit_window",
+        "value": [
+          "09:00",
+          "17:00"
+        ],
+        "source": "raw_plan.days[].attractions[].start_time/end_time + snapshot.evidence.opening",
+        "rule": "明确到访时间，处于用户时间范围及官方开放时间内",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-01",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。共有2位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-10-26至2026-10-27，公共交通、经济型住宿。每天安排1至3个不同景点。共有2位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-26",
+          "2026-10-27"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 2,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-02",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。共有3位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-27",
+      "end_date": "2026-10-29",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-10-27至2026-10-29，公共交通、经济型住宿。每天安排1至3个不同景点。共有3位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 3,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-03",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。共有4位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-28",
+      "end_date": "2026-10-31",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-10-28至2026-10-31，公共交通、经济型住宿。每天安排1至3个不同景点。共有4位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 4,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-04",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。共有5位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-10-29至2026-10-30，公共交通、经济型住宿。每天安排1至3个不同景点。共有5位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-29",
+          "2026-10-30"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 5,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-05",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。共有6位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-10-30",
+      "end_date": "2026-11-01",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京3日旅行，日期从2026-10-30至2026-11-01，公共交通、经济型住宿。每天安排1至3个不同景点。共有6位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-30",
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 6,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-06",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。共有7位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-10-31",
+      "end_date": "2026-11-03",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州4日旅行，日期从2026-10-31至2026-11-03，公共交通、经济型住宿。每天安排1至3个不同景点。共有7位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-02",
+          "2026-11-03"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 7,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-07",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。共有8位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-02",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京2日旅行，日期从2026-11-01至2026-11-02，公共交通、经济型住宿。每天安排1至3个不同景点。共有8位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-01",
+          "2026-11-02"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 8,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-08",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。共有9位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-02",
+      "end_date": "2026-11-04",
+      "travel_days": 3,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州3日旅行，日期从2026-11-02至2026-11-04，公共交通、经济型住宿。每天安排1至3个不同景点。共有9位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-02",
+          "2026-11-03",
+          "2026-11-04"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 9,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-09",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。共有10位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "北京",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-06",
+      "travel_days": 4,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划北京4日旅行，日期从2026-11-03至2026-11-06，公共交通、经济型住宿。每天安排1至3个不同景点。共有10位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "北京",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-06"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 10,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  },
+  {
+    "task_id": "people-10",
+    "category": "people",
+    "difficulty": "medium",
+    "user_query": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。共有11位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。",
+    "request": {
+      "city": "杭州",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-05",
+      "travel_days": 2,
+      "transportation": "公共交通",
+      "accommodation": "经济型酒店",
+      "hotel_brand": "",
+      "hotel_location": "",
+      "hotel_location_detail": "",
+      "preferences": [],
+      "free_text_input": "请规划杭州2日旅行，日期从2026-11-04至2026-11-05，公共交通、经济型住宿。每天安排1至3个不同景点。共有11位成人，请在JSON的travelers字段注明人数。希望路线舒适、景点类型丰富。"
+    },
+    "constraints": [
+      {
+        "kind": "city",
+        "value": "杭州",
+        "source": "final_plan.city",
+        "rule": "等于请求城市",
+        "hard": true
+      },
+      {
+        "kind": "dates",
+        "value": [
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "source": "final_plan.days[].date",
+        "rule": "日期依次等于完整请求日期集合",
+        "hard": true
+      },
+      {
+        "kind": "daily_count",
+        "value": [
+          1,
+          3
+        ],
+        "source": "final_plan.days[].attractions",
+        "rule": "每天有1至3个不重复景点",
+        "hard": true
+      },
+      {
+        "kind": "hotel",
+        "value": true,
+        "source": "final_plan.days[].hotel + snapshot.cities.hotels",
+        "rule": "每个住宿晚对应的酒店必须匹配冻结目录",
+        "hard": true
+      },
+      {
+        "kind": "travelers",
+        "value": 11,
+        "source": "raw_plan.travelers",
+        "rule": "显式人数等于用户人数",
+        "hard": true
+      }
+    ],
+    "soft_preferences": [
+      "路线舒适",
+      "景点多样性"
+    ],
+    "environment_snapshot": "amap-frozen-v1",
+    "grading_config": {
+      "aggregation": "all_hard_and_valid_pois"
+    },
+    "fault": null,
+    "expected_response": "plan"
+  }
+]

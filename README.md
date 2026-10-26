@@ -1,23 +1,28 @@
 # 智能旅行助手 🌍✈️
 
-FastAPI + Vue 3 的旅行规划应用。核心不是"让大模型写一篇游记"，而是**让每个事实都能追回数据源**：
-景点、坐标、地址、评分、天气、酒店全部来自高德 Web 服务，模型只负责编排和文案；任何一步没取到数据，
-接口会明确告诉你（`degraded` + `warnings` + `trace`），而不是悄悄编一份看起来很像的行程。
+FastAPI + React + TypeScript 的旅行规划应用。通过高德 Web 服务查询景点、坐标、地址、评分、天气与酒店，依据可核验地点生成行程，并保存任务状态、执行事件和工具轨迹。
+
+## React 交互工作台
+
+在项目根目录运行 `./start-react.ps1`，访问 `http://127.0.0.1:8772`。首次安装 Python 依赖时使用 `./start-react.ps1 -InstallDependencies`。脚本构建 `frontend-react/` 并启动 FastAPI，页面与接口通过同一地址提供。
+
+- 填写目的地、日期、偏好与住宿条件，提交真实规划任务，接收 SSE 实时进度，查看和取消尚未完成的任务。
+- 查看每日景点、真实高德地图、酒店、天气与预算，调整景点顺序并保存在浏览器，下载完整行程 JSON。
+- Mermaid 展示景点查询、天气查询、酒店搜索与模型编排的实际步骤，支持缩放、节点详情、参数、返回条数、耗时与历史事件回放。
+- 后端读取 `backend/.env` 中的模型与高德 Web 服务配置；浏览器地图读取 `frontend/.env` 中已有的 `VITE_AMAP_WEB_JS_KEY` 与 `VITE_AMAP_SECURITY_JS_CODE`。模型密钥与高德 Web 服务密钥保留在服务端。
+
+前端源码位于 `frontend-react/`，工作台接口位于 `backend/app/api/routes/workbench.py`。前端开发可在 `frontend-react/` 执行 `npm run dev`。
 
 ## 一次请求发生了什么
 
-```
-POST /api/trip/plan
-        │
-        ├─ ① 景点   模型抽关键词（function call） ──► 本地执行 amap_search_poi  ──► 高德真实 POI
-        ├─ ② 天气   模型抽城市   （function call） ──► 本地执行 amap_get_weather ──► 高德真实预报
-        ├─ ③ 酒店   模型抽品牌/地标（function call）──► 本地执行 amap_search_hotel ──► 高德真实住宿
-        │           （酒店按到景点群中心的距离排序后再交给模型）
-        ├─ ④ 规划   模型只用上面三份真实数据出 JSON（json_object 模式）
-        │
-        └─ ⑤ 回填   按名称把模型写的景点/酒店对回高德候选：
-                    坐标、地址、评分、POI ID 一律以高德为准；
-                    对不上的景点直接丢弃并告警；对不上的酒店替换为最近的真实酒店
+```mermaid
+flowchart LR
+    Request[旅行条件] --> Places[高德景点查询]
+    Places --> Weather[高德天气查询]
+    Weather --> Hotels[高德酒店查询]
+    Hotels --> Plan[模型生成结构化行程]
+    Plan --> Verify[依据高德候选核验地点]
+    Verify --> Result[保存结果与执行事件]
 ```
 
 关键点：**工具调用永远由本地代码执行**，模型只输出参数。所以不存在"模型自己编一个断桥残雪的经纬度"这种事。
@@ -27,7 +32,7 @@ POST /api/trip/plan
 ```mermaid
 flowchart LR
     subgraph 前端
-        UI["Vue 3 + TS<br/>Home / Result"]
+        UI["React + TypeScript<br/>行程 / 地图 / Mermaid 流程"]
     end
 
     subgraph 后端["FastAPI"]
@@ -233,9 +238,42 @@ Windows 一键启动：`start.bat`。
 
 ```bash
 cd backend
-python -m pytest tests -q        # 57 passed
+python -m pytest tests -q --basetemp=.evaluation-work/pytest        # 127 passed
 powershell -File scripts/fault_kill_worker.ps1   # 故障注入（需要 EXECUTION_MODE=queue）
 ```
+
+## Agent 评测
+
+`backend/evaluations` 提供100条旅行规划任务、六类自动评分、冻结高德数据、A/B/C策略比较、确定性故障注入、失败重放和HTML报告。硬约束与软偏好分别保存，缺少价格或开放证据时返回 `unverifiable`。任务成功率同时报告可验证和无法验证样本数。
+
+```mermaid
+flowchart LR
+    Benchmark[100条任务及验证规则] --> Runner[独立进程批量评测]
+    Snapshot[固定高德快照及故障配置] --> Runner
+    Runner --> Agent[现有旅行规划Agent及A/B/C策略]
+    Agent --> Trace[模型与工具完整轨迹]
+    Trace --> Graders[任务、约束、POI、工具、恢复与效率评分]
+    Graders --> Results[SQLite、JSON和HTML报告]
+```
+
+```powershell
+cd backend
+pip install -r requirements.txt
+python -m pytest tests/test_evaluations.py -q --basetemp=.evaluation-work/pytest
+python -m evaluations run --output evaluations/runs/comparison
+python -m evaluations report evaluations/runs/comparison
+python -m evaluations replay-failures evaluations/runs/comparison --output evaluations/runs/replay
+```
+
+默认运行全部任务和三个策略；`--tasks basic-01 faults-01` 选择任务，配置中的 `repeats` 控制重复次数。真实模型实验需要现有模型凭据，离线评分测试和已录制响应重放无需模型服务。评测使用独立进程和实验数据库，Worker基础设施重试与Agent策略恢复分别记录。
+
+数据构建、证据格式、策略行为、指标分母及复现细节见 [评测说明](backend/evaluations/README.md)。
+
+真实模型比较、失败分析、重放验证及两条简历描述见 [实验报告](backend/evaluations/reports/2026-10-23/RESULTS.md)，完整轨迹可在 [HTML报告](backend/evaluations/reports/2026-10-23/report.html) 中筛选查看。
+
+完整100条任务使用 `python -m evaluations run --config evaluations/configs/full.json --output evaluations/runs/full` 执行，三个策略各重复两次，共600次系统执行。版本2.0增加规划前冲突检查、缺失地点的询问答复和连续故障测试，分别统计行程完成、合理拒绝及规则直接答复。完整结果见 [100条任务报告](backend/evaluations/reports/2026-10-23-full/RESULTS.md)。
+
+依据《深入理解 AI Agent》增加重复可靠性、任务配对统计、重新规划组件消融及执行清单提示词实验。重复成绩保留通过、失败、无法验证三种状态；统计区间以任务为抽样单位，保留同一任务的重复记录。重新规划消融使用原始模型响应前缀，执行清单实验另行调用真实模型。方法出处见 [书籍研究](backend/evaluations/book_methods_research.md)，实际成绩与复现命令见 [书籍方法实验](backend/evaluations/reports/book-study-20261024/RESULTS.md)，通俗说明见 [成绩解读](backend/evaluations/reports/book-study-20261024/explainer.html)。
 
 ## 已知限制
 

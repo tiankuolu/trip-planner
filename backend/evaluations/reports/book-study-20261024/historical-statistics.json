@@ -1,0 +1,271 @@
+{
+  "source_manifest": {
+    "evaluation_version": "2.0.0",
+    "created_at": "2026-10-23T13:28:00.105109+00:00",
+    "config": {
+      "strategies": [
+        "A",
+        "B",
+        "C"
+      ],
+      "repeats": 2,
+      "temperature": 0.0,
+      "parallelism": 6,
+      "seed": 42,
+      "timeout_seconds": 180.0,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null,
+      "price_source": null
+    },
+    "benchmark_hash": "55cb6c564c80d1730b68d1a060731230439d7619c20037049aa6a58272e1b542",
+    "snapshot_hash": "2a2b93e08fd80c89248ce25705701097d03c766f553ea2d9931280be40387b59",
+    "source_hash": "263545d2e55eda9c91ced06f924f9bd10b7a797334e26469f4a694e11507ba7f",
+    "git_commit": "8e2a8003f416d3cdebb5c86bb16164afeb717321",
+    "prompt_hash": "2f039d645e81692ca98a973fe882f3e7a1712070bb7e2282a512f83be0f10c52",
+    "python": "3.11.9",
+    "dependencies": {
+      "openai": "2.48.0",
+      "httpx": "0.28.1",
+      "pydantic": "2.13.4",
+      "jsonschema": "4.26.0"
+    },
+    "execution": "isolated_process_direct_agent",
+    "infrastructure_retries": 0
+  },
+  "book_commit": "dbc046eb896ac4e39aa19c7774c8bf49583b89a6",
+  "repeat_metrics": {
+    "A": {
+      "repeat_count": 2,
+      "tasks": 100,
+      "any_pass": {
+        "pass": 38,
+        "fail": 46,
+        "unverifiable": 16,
+        "samples": 100,
+        "confirmed_rate": 0.38,
+        "identification_bounds": [
+          0.38,
+          0.54
+        ]
+      },
+      "all_pass": {
+        "pass": 28,
+        "fail": 61,
+        "unverifiable": 11,
+        "samples": 100,
+        "confirmed_rate": 0.28,
+        "identification_bounds": [
+          0.28,
+          0.39
+        ]
+      }
+    },
+    "B": {
+      "repeat_count": 2,
+      "tasks": 100,
+      "any_pass": {
+        "pass": 56,
+        "fail": 22,
+        "unverifiable": 22,
+        "samples": 100,
+        "confirmed_rate": 0.56,
+        "identification_bounds": [
+          0.56,
+          0.78
+        ]
+      },
+      "all_pass": {
+        "pass": 50,
+        "fail": 31,
+        "unverifiable": 19,
+        "samples": 100,
+        "confirmed_rate": 0.5,
+        "identification_bounds": [
+          0.5,
+          0.69
+        ]
+      }
+    },
+    "C": {
+      "repeat_count": 2,
+      "tasks": 100,
+      "any_pass": {
+        "pass": 64,
+        "fail": 8,
+        "unverifiable": 28,
+        "samples": 100,
+        "confirmed_rate": 0.64,
+        "identification_bounds": [
+          0.64,
+          0.92
+        ]
+      },
+      "all_pass": {
+        "pass": 60,
+        "fail": 16,
+        "unverifiable": 24,
+        "samples": 100,
+        "confirmed_rate": 0.6,
+        "identification_bounds": [
+          0.6,
+          0.84
+        ]
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "control": "A",
+      "treatment": "B",
+      "paired_tasks": 100,
+      "paired_runs": 200,
+      "control_statuses": {
+        "pass": 66,
+        "fail": 107,
+        "unverifiable": 27,
+        "samples": 200,
+        "confirmed_rate": 0.33,
+        "identification_bounds": [
+          0.33,
+          0.465
+        ]
+      },
+      "treatment_statuses": {
+        "pass": 106,
+        "fail": 53,
+        "unverifiable": 41,
+        "samples": 200,
+        "confirmed_rate": 0.53,
+        "identification_bounds": [
+          0.53,
+          0.735
+        ]
+      },
+      "confirmed_rate_difference": 0.2,
+      "paired_task_bootstrap_95": [
+        0.12,
+        0.285
+      ],
+      "category_cluster_bootstrap_95": [
+        0.005,
+        0.425
+      ],
+      "category_clusters": 10,
+      "unknown_identification_difference_bounds": [
+        0.065,
+        0.40499999999999997
+      ],
+      "mcnemar_all_pass": {
+        "eligible_tasks": 78,
+        "excluded_tasks": 22,
+        "lost": 5,
+        "gained": 27,
+        "p_value": 0.00011307420209050179
+      },
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20261024
+    },
+    {
+      "control": "B",
+      "treatment": "C",
+      "paired_tasks": 100,
+      "paired_runs": 200,
+      "control_statuses": {
+        "pass": 106,
+        "fail": 53,
+        "unverifiable": 41,
+        "samples": 200,
+        "confirmed_rate": 0.53,
+        "identification_bounds": [
+          0.53,
+          0.735
+        ]
+      },
+      "treatment_statuses": {
+        "pass": 124,
+        "fail": 24,
+        "unverifiable": 52,
+        "samples": 200,
+        "confirmed_rate": 0.62,
+        "identification_bounds": [
+          0.62,
+          0.88
+        ]
+      },
+      "confirmed_rate_difference": 0.09,
+      "paired_task_bootstrap_95": [
+        0.034875000000000114,
+        0.155
+      ],
+      "category_cluster_bootstrap_95": [
+        -0.03,
+        0.245
+      ],
+      "category_clusters": 10,
+      "unknown_identification_difference_bounds": [
+        -0.11499999999999999,
+        0.35
+      ],
+      "mcnemar_all_pass": {
+        "eligible_tasks": 75,
+        "excluded_tasks": 25,
+        "lost": 2,
+        "gained": 12,
+        "p_value": 0.012939453125
+      },
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20261024
+    },
+    {
+      "control": "A",
+      "treatment": "C",
+      "paired_tasks": 100,
+      "paired_runs": 200,
+      "control_statuses": {
+        "pass": 66,
+        "fail": 107,
+        "unverifiable": 27,
+        "samples": 200,
+        "confirmed_rate": 0.33,
+        "identification_bounds": [
+          0.33,
+          0.465
+        ]
+      },
+      "treatment_statuses": {
+        "pass": 124,
+        "fail": 24,
+        "unverifiable": 52,
+        "samples": 200,
+        "confirmed_rate": 0.62,
+        "identification_bounds": [
+          0.62,
+          0.88
+        ]
+      },
+      "confirmed_rate_difference": 0.29,
+      "paired_task_bootstrap_95": [
+        0.205,
+        0.38
+      ],
+      "category_cluster_bootstrap_95": [
+        0.1,
+        0.5
+      ],
+      "category_clusters": 10,
+      "unknown_identification_difference_bounds": [
+        0.15499999999999997,
+        0.55
+      ],
+      "mcnemar_all_pass": {
+        "eligible_tasks": 76,
+        "excluded_tasks": 24,
+        "lost": 2,
+        "gained": 34,
+        "p_value": 1.941225491464138e-08
+      },
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 20261024
+    }
+  ]
+}

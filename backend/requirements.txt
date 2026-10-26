@@ -23,3 +23,6 @@ python-dateutil>=2.8.2
 
 # ---- 测试（可选）----
 pytest>=8.0.0
+jsonschema>=4.23.0
+numpy>=2.0.0
+scipy>=1.13.0

@@ -1,0 +1,11 @@
+{
+  "strategies": ["A", "B", "C"],
+  "repeats": 2,
+  "parallelism": 3,
+  "temperature": 0,
+  "seed": 42,
+  "timeout_seconds": 180,
+  "input_cost_per_million": null,
+  "output_cost_per_million": null,
+  "price_source": null
+}

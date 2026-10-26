@@ -1,0 +1,758 @@
+{
+  "mode": [
+    "live_model_frozen_tools"
+  ],
+  "strategies": {
+    "A": {
+      "samples": 32,
+      "verifiable_samples": 29,
+      "unverifiable_samples": 3,
+      "task_success_rate": 0.1724137931034483,
+      "success_fraction_all": 0.15625,
+      "constraint_satisfaction_rate": 0.7727272727272727,
+      "constraint_counts": {
+        "pass": 102,
+        "fail": 30,
+        "unverifiable": 4
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 162
+      },
+      "tool_error_rate": 0.08695652173913043,
+      "fault_exposed_samples": 12,
+      "recovery_rate": 0.16666666666666666,
+      "average_latency_ms": 12013.867681249394,
+      "average_tool_calls": 2.875,
+      "token_usage": 176144,
+      "token_observed_samples": 32,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 24,
+        "unverifiable": 4,
+        "planning_failure": 8,
+        "recovery_failure": 10,
+        "timeout": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 0.75,
+        "unverifiable": 0.125,
+        "planning_failure": 0.25,
+        "recovery_failure": 0.3125,
+        "timeout": 0.0625
+      }
+    },
+    "B": {
+      "samples": 32,
+      "verifiable_samples": 27,
+      "unverifiable_samples": 5,
+      "task_success_rate": 0.2962962962962963,
+      "success_fraction_all": 0.25,
+      "constraint_satisfaction_rate": 0.6106870229007634,
+      "constraint_counts": {
+        "pass": 80,
+        "fail": 51,
+        "unverifiable": 5
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 126
+      },
+      "tool_error_rate": 0.08695652173913043,
+      "fault_exposed_samples": 12,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 10014.142359366815,
+      "average_tool_calls": 2.875,
+      "token_usage": 165387,
+      "token_observed_samples": 32,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 19,
+        "planning_failure": 10,
+        "unverifiable": 5,
+        "recovery_failure": 12,
+        "timeout": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 0.59375,
+        "planning_failure": 0.3125,
+        "unverifiable": 0.15625,
+        "recovery_failure": 0.375,
+        "timeout": 0.0625
+      }
+    },
+    "C": {
+      "samples": 32,
+      "verifiable_samples": 26,
+      "unverifiable_samples": 6,
+      "task_success_rate": 0.9230769230769231,
+      "success_fraction_all": 0.75,
+      "constraint_satisfaction_rate": 0.9230769230769231,
+      "constraint_counts": {
+        "pass": 120,
+        "unverifiable": 6,
+        "fail": 10
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 166
+      },
+      "tool_error_rate": 0.07407407407407407,
+      "fault_exposed_samples": 12,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 13926.731428146013,
+      "average_tool_calls": 3.375,
+      "token_usage": null,
+      "token_observed_samples": 31,
+      "cost": null,
+      "error_counts": {
+        "unverifiable": 6,
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "timeout": 2
+      },
+      "error_proportions": {
+        "unverifiable": 0.1875,
+        "constraint_violation": 0.0625,
+        "planning_failure": 0.0625,
+        "timeout": 0.0625
+      }
+    }
+  },
+  "fault_conditions": {
+    "A:none": {
+      "samples": 20,
+      "verifiable_samples": 17,
+      "unverifiable_samples": 3,
+      "task_success_rate": 0.17647058823529413,
+      "success_fraction_all": 0.15,
+      "constraint_satisfaction_rate": 0.8333333333333334,
+      "constraint_counts": {
+        "pass": 70,
+        "fail": 14,
+        "unverifiable": 4
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 123
+      },
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 0,
+      "recovery_rate": null,
+      "average_latency_ms": 12273.87281000847,
+      "average_tool_calls": 3.0,
+      "token_usage": 122585,
+      "token_observed_samples": 20,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 14,
+        "unverifiable": 4
+      },
+      "error_proportions": {
+        "constraint_violation": 0.7,
+        "unverifiable": 0.2
+      }
+    },
+    "B:none": {
+      "samples": 20,
+      "verifiable_samples": 15,
+      "unverifiable_samples": 5,
+      "task_success_rate": 0.5333333333333333,
+      "success_fraction_all": 0.4,
+      "constraint_satisfaction_rate": 0.8192771084337349,
+      "constraint_counts": {
+        "pass": 68,
+        "fail": 15,
+        "unverifiable": 5
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 82
+      },
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 0,
+      "recovery_rate": null,
+      "average_latency_ms": 11141.226600005757,
+      "average_tool_calls": 3.0,
+      "token_usage": 118476,
+      "token_observed_samples": 20,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 7,
+        "planning_failure": 2,
+        "unverifiable": 5
+      },
+      "error_proportions": {
+        "constraint_violation": 0.35,
+        "planning_failure": 0.1,
+        "unverifiable": 0.25
+      }
+    },
+    "C:none": {
+      "samples": 20,
+      "verifiable_samples": 14,
+      "unverifiable_samples": 6,
+      "task_success_rate": 0.8571428571428571,
+      "success_fraction_all": 0.6,
+      "constraint_satisfaction_rate": 0.8780487804878049,
+      "constraint_counts": {
+        "pass": 72,
+        "unverifiable": 6,
+        "fail": 10
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 73
+      },
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 0,
+      "recovery_rate": null,
+      "average_latency_ms": 12951.988015032839,
+      "average_tool_calls": 3.0,
+      "token_usage": null,
+      "token_observed_samples": 19,
+      "cost": null,
+      "error_counts": {
+        "unverifiable": 6,
+        "constraint_violation": 2,
+        "planning_failure": 2
+      },
+      "error_proportions": {
+        "unverifiable": 0.3,
+        "constraint_violation": 0.1,
+        "planning_failure": 0.1
+      }
+    },
+    "B:timeout": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.0,
+      "constraint_counts": {
+        "fail": 8
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 0.3333333333333333,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 5387.125349952839,
+      "average_tool_calls": 3.0,
+      "token_usage": 7120,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2,
+        "timeout": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0,
+        "timeout": 1.0
+      }
+    },
+    "A:timeout": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.75,
+      "constraint_counts": {
+        "pass": 6,
+        "fail": 2
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 0.3333333333333333,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 11719.479649909772,
+      "average_tool_calls": 3.0,
+      "token_usage": 9159,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2,
+        "timeout": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0,
+        "timeout": 1.0
+      }
+    },
+    "C:timeout": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 1.0,
+      "success_fraction_all": 1.0,
+      "constraint_satisfaction_rate": 1.0,
+      "constraint_counts": {
+        "pass": 8
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 11
+      },
+      "tool_error_rate": 0.25,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 15936.058349907398,
+      "average_tool_calls": 4.0,
+      "token_usage": 18008,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "timeout": 2
+      },
+      "error_proportions": {
+        "timeout": 1.0
+      }
+    },
+    "A:weather_error": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 1.0,
+      "success_fraction_all": 1.0,
+      "constraint_satisfaction_rate": 1.0,
+      "constraint_counts": {
+        "pass": 8
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 17
+      },
+      "tool_error_rate": 0.3333333333333333,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 13782.169899903238,
+      "average_tool_calls": 3.0,
+      "token_usage": 12587,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {},
+      "error_proportions": {}
+    },
+    "B:weather_error": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.75,
+      "constraint_counts": {
+        "pass": 6,
+        "fail": 2
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 22
+      },
+      "tool_error_rate": 0.3333333333333333,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 16481.07894998975,
+      "average_tool_calls": 3.0,
+      "token_usage": 13941,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "C:weather_error": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 1.0,
+      "success_fraction_all": 1.0,
+      "constraint_satisfaction_rate": 1.0,
+      "constraint_counts": {
+        "pass": 8
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 16
+      },
+      "tool_error_rate": 0.25,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 16246.854449971579,
+      "average_tool_calls": 4.0,
+      "token_usage": 14493,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {},
+      "error_proportions": {}
+    },
+    "A:hotel_empty": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.75,
+      "constraint_counts": {
+        "pass": 6,
+        "fail": 2
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 22
+      },
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 14722.39070001524,
+      "average_tool_calls": 3.0,
+      "token_usage": 11259,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "B:hotel_empty": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.75,
+      "constraint_counts": {
+        "pass": 6,
+        "fail": 2
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 22
+      },
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 13102.96729998663,
+      "average_tool_calls": 3.0,
+      "token_usage": 10659,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "C:hotel_empty": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 1.0,
+      "success_fraction_all": 1.0,
+      "constraint_satisfaction_rate": 1.0,
+      "constraint_counts": {
+        "pass": 8
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 19
+      },
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 14774.040549993515,
+      "average_tool_calls": 4.0,
+      "token_usage": 14980,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {},
+      "error_proportions": {}
+    },
+    "A:poi_empty": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.75,
+      "constraint_counts": {
+        "pass": 6,
+        "fail": 2
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 12117.450749967247,
+      "average_tool_calls": 3.0,
+      "token_usage": 9020,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "B:poi_empty": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.0,
+      "constraint_counts": {
+        "fail": 8
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 5916.800400009379,
+      "average_tool_calls": 3.0,
+      "token_usage": 7052,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "A:invalid_fields": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.0,
+      "constraint_counts": {
+        "fail": 8
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 1.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 2190.313750063069,
+      "average_tool_calls": 1.0,
+      "token_usage": 994,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "C:poi_empty": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 1.0,
+      "success_fraction_all": 1.0,
+      "constraint_satisfaction_rate": 1.0,
+      "constraint_counts": {
+        "pass": 8
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 12
+      },
+      "tool_error_rate": 0.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 13956.154900137335,
+      "average_tool_calls": 4.0,
+      "token_usage": 13830,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {},
+      "error_proportions": {}
+    },
+    "B:invalid_fields": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.0,
+      "constraint_counts": {
+        "fail": 8
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 1.0,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 2511.054400005378,
+      "average_tool_calls": 1.0,
+      "token_usage": 994,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "B:network": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.0,
+      "constraint_counts": {
+        "fail": 8
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 0.3333333333333333,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 5414.985349867493,
+      "average_tool_calls": 3.0,
+      "token_usage": 7145,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "C:invalid_fields": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 1.0,
+      "success_fraction_all": 1.0,
+      "constraint_satisfaction_rate": 1.0,
+      "constraint_counts": {
+        "pass": 8
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 15
+      },
+      "tool_error_rate": 0.25,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 13923.644550028257,
+      "average_tool_calls": 4.0,
+      "token_usage": 14157,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {},
+      "error_proportions": {}
+    },
+    "A:network": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 0.0,
+      "success_fraction_all": 0.0,
+      "constraint_satisfaction_rate": 0.75,
+      "constraint_counts": {
+        "pass": 6,
+        "fail": 2
+      },
+      "poi_validity_rate": null,
+      "poi_counts": {},
+      "tool_error_rate": 0.3333333333333333,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 0.0,
+      "average_latency_ms": 14951.35005004704,
+      "average_tool_calls": 3.0,
+      "token_usage": 10540,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {
+        "constraint_violation": 2,
+        "planning_failure": 2,
+        "recovery_failure": 2
+      },
+      "error_proportions": {
+        "constraint_violation": 1.0,
+        "planning_failure": 1.0,
+        "recovery_failure": 1.0
+      }
+    },
+    "C:network": {
+      "samples": 2,
+      "verifiable_samples": 2,
+      "unverifiable_samples": 0,
+      "task_success_rate": 1.0,
+      "success_fraction_all": 1.0,
+      "constraint_satisfaction_rate": 1.0,
+      "constraint_counts": {
+        "pass": 8
+      },
+      "poi_validity_rate": 1.0,
+      "poi_counts": {
+        "pass": 20
+      },
+      "tool_error_rate": 0.25,
+      "fault_exposed_samples": 2,
+      "recovery_rate": 1.0,
+      "average_latency_ms": 18471.069899969734,
+      "average_tool_calls": 4.0,
+      "token_usage": 15959,
+      "token_observed_samples": 2,
+      "cost": null,
+      "error_counts": {},
+      "error_proportions": {}
+    }
+  },
+  "sample_count": 96
+}

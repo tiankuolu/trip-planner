@@ -1,0 +1,17 @@
+{
+  "mode": "standalone_archive_offline_reproduction",
+  "trial_statistics_identical": true,
+  "historical_statistics_identical": true,
+  "ablation_identical": true,
+  "replay": {
+    "pass": 113,
+    "fail": 0,
+    "unverifiable": 7,
+    "samples": 120,
+    "confirmed_rate": 0.9416666666666667,
+    "identification_bounds": [
+      0.9416666666666667,
+      1.0
+    ]
+  }
+}

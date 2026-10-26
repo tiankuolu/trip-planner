@@ -214,9 +214,10 @@ def _best_match(
 class MultiAgentTripPlanner:
     """四步流水线：景点 → 天气 → 酒店 → 行程规划"""
 
-    def __init__(self) -> None:
-        self.llm = get_llm()
-        self.amap = get_amap_service()
+    def __init__(self, *, llm=None, tool_executor=None) -> None:
+        self.llm = llm if llm is not None else get_llm()
+        self.amap = get_amap_service() if tool_executor is None else None
+        self._execute_tool = tool_executor if tool_executor is not None else execute_tool
         self._on_step: Optional[Callable[[Dict[str, Any]], None]] = None
         self._should_cancel: Optional[Callable[[], bool]] = None
         self._token_usage = 0
@@ -257,7 +258,7 @@ class MultiAgentTripPlanner:
             arguments, meta = self.llm.call_with_tool(
                 system_prompt, user_prompt, get_tool_schema(tool_name)
             )
-            data = execute_tool(tool_name, arguments)
+            data = self._execute_tool(tool_name, arguments)
         except (LLMError, AmapError, KeyError) as exc:
             elapsed = int((time.perf_counter() - started) * 1000)
             entry = {
@@ -563,10 +564,6 @@ class MultiAgentTripPlanner:
             result.warnings.append(f"有 {dropped} 个景点无法匹配高德坐标，已从行程中移除")
         if pois and matched_pois == 0:
             result.warnings.append("景点名称与高德候选全部未匹配上，坐标未经校验")
-        elif pois and matched_pois < len(pois) // 2:
-            result.warnings.append(
-                f"仅 {matched_pois} 个景点匹配到高德数据，其余为模型生成"
-            )
         if hotels and matched_hotels == 0:
             result.warnings.append("酒店名称未匹配到高德数据，地址未经校验")
         if replaced_hotels:
@@ -647,7 +644,7 @@ class MultiAgentTripPlanner:
             "llm_model": self.llm.model,
             "llm_base_url": self.llm.base_url,
             "tools": list_tools(),
-            "amap_key_configured": bool(self.amap.key),
+            "amap_key_configured": bool(self.amap and self.amap.key),
             "pipeline": ["景点搜索", "天气查询", "酒店搜索", "行程规划"],
             "forced_tool_choice": self.llm._forced_tool,  # noqa: SLF001 - 自检需要
         }

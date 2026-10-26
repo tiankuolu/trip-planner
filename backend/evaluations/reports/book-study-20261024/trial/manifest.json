@@ -1,0 +1,521 @@
+{
+  "book_commit": "dbc046eb896ac4e39aa19c7774c8bf49583b89a6",
+  "created_at": "2026-10-24T14:52:36.122388+00:00",
+  "config": {
+    "strategies": [
+      "C"
+    ],
+    "repeats": 3,
+    "temperature": 0.0,
+    "parallelism": 6,
+    "seed": 42,
+    "timeout_seconds": 180.0,
+    "input_cost_per_million": null,
+    "output_cost_per_million": null,
+    "price_source": null
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "variants": [
+    "C",
+    "W"
+  ],
+  "source_hash": "6d19b8f33dc4711fb3f40abc7ed20a9d3dfca59a5ebae17dcacfc2d0c592a747",
+  "benchmark_hash": "bb615ccd9d8dca7b9a81f9857a88f8e4065394af35bcff5788d355fd4902fae3",
+  "snapshot_hash": "2a2b93e08fd80c89248ce25705701097d03c766f553ea2d9931280be40387b59",
+  "control_prompt_hash": "2f039d645e81692ca98a973fe882f3e7a1712070bb7e2282a512f83be0f10c52",
+  "scope": "development_diagnostic_not_unseen_holdout",
+  "primary": "paired_confirmed_success_difference_W_minus_C",
+  "ordering": "counterbalanced_within_task_seed_and_shuffled_pairs",
+  "infrastructure_retries": 0,
+  "annotation": "both_variants_receive_the_same_human_annotated_hard_constraints",
+  "changes": "W replaces conflicting default daily rule and adds workflow/checklist; C recovery budget unchanged",
+  "model": "deepseek-v4-flash",
+  "endpoint": "https://api.deepseek.com",
+  "workflow_prompt_hash": "9f94d7e3fd33066c30e6d59597748a9b38e1ba0dc1f5776d46a130509dadfe71",
+  "schedule": [
+    {
+      "task_id": "daily_count-01",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-03",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-05",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-04",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-05",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-07",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-06",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-08",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-06",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-09",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-10",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-01",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-05",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-09",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-01",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-10",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-07",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-05",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-01",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-06",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-07",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-02",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-07",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-09",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-04",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-04",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-03",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-10",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-07",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-08",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-09",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-08",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-02",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-08",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-01",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-09",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-01",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-03",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-06",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-03",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-10",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-04",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-09",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-03",
+      "repeat": 1,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-02",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-06",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-06",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-05",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-08",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-04",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-10",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-04",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-03",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-02",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-02",
+      "repeat": 2,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-10",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "daily_count-05",
+      "repeat": 0,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "daily_count-07",
+      "repeat": 2,
+      "order": [
+        "C",
+        "W"
+      ]
+    },
+    {
+      "task_id": "faults-02",
+      "repeat": 0,
+      "order": [
+        "W",
+        "C"
+      ]
+    },
+    {
+      "task_id": "faults-08",
+      "repeat": 1,
+      "order": [
+        "C",
+        "W"
+      ]
+    }
+  ]
+}

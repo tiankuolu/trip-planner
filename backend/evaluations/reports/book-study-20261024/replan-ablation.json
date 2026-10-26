@@ -1,0 +1,1820 @@
+{
+  "scope": "conditional_on_recorded_response_prefixes",
+  "checks": [
+    {
+      "run_id": "basic-01-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-02-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "basic-03-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-04-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "basic-05-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-07-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-06-C-0",
+      "status": "unverifiable",
+      "reason": "录制响应不完整"
+    },
+    {
+      "run_id": "basic-08-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-09-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-10-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-01-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-02-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-03-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-04-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-05-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-06-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-07-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-08-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-09-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-10-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-01-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-02-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-04-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-03-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-05-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-06-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-07-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-08-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-10-C-0",
+      "status": "unverifiable",
+      "reason": "录制响应不完整"
+    },
+    {
+      "run_id": "budget-09-C-0",
+      "status": "unverifiable",
+      "reason": "录制响应不完整"
+    },
+    {
+      "run_id": "required_pois-01-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-02-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-03-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-04-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-05-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-06-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-07-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-08-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-09-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 3,
+      "original_model_calls": 3,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-10-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 3,
+      "original_model_calls": 3,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-01-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-02-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-03-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-04-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-05-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-06-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-07-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-08-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-09-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-10-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "opening-01-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-02-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-03-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "opening-04-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-05-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-07-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-06-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-08-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-09-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "infeasible-01-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-10-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-02-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-03-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-04-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-05-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-06-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-07-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-08-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-09-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-10-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-01-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-02-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-03-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-04-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-05-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-06-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-07-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "faults-08-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "faults-09-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "faults-10-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "time_window-01-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-02-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "time_window-03-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-04-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-05-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-06-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-07-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-08-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-09-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-10-C-0",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-01-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-02-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-03-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-05-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-04-C-0",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "people-06-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-07-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-08-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-09-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-10-C-0",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-01-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-02-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-03-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-04-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-05-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-06-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "basic-07-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-08-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "basic-09-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-01-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "basic-10-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "multi_day-02-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-03-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-04-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-05-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-06-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-07-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-08-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-09-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "multi_day-10-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-01-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-02-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-03-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-04-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-05-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-07-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-06-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "budget-08-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-09-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "budget-10-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-01-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-02-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-03-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-04-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-05-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-06-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-07-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-08-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-09-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 3,
+      "original_model_calls": 3,
+      "replanned": false
+    },
+    {
+      "run_id": "required_pois-10-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 3,
+      "original_model_calls": 3,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-01-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-02-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-03-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-04-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-05-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-06-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-07-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "daily_count-08-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-09-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "daily_count-10-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "opening-01-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-02-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-03-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "opening-04-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-05-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "opening-06-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-07-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "opening-08-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-09-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "infeasible-01-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "opening-10-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-02-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-03-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-04-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-05-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-06-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-07-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-08-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-09-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "infeasible-10-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 0,
+      "original_model_calls": 0,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-01-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-02-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-03-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-04-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-05-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-06-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 5,
+      "original_model_calls": 5,
+      "replanned": false
+    },
+    {
+      "run_id": "faults-07-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "faults-08-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "faults-09-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "faults-10-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 5,
+      "original_model_calls": 6,
+      "replanned": true
+    },
+    {
+      "run_id": "time_window-01-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-03-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-02-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "time_window-04-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-05-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-06-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-07-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-08-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-09-C-1",
+      "status": "verified_prefix",
+      "original": "unverifiable",
+      "without_replan": "unverifiable",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-01-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "time_window-10-C-1",
+      "status": "verified_prefix",
+      "original": "fail",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "people-02-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-03-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-04-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "fail",
+      "used_model_calls": 4,
+      "original_model_calls": 5,
+      "replanned": true
+    },
+    {
+      "run_id": "people-05-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-06-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-07-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-08-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-09-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    },
+    {
+      "run_id": "people-10-C-1",
+      "status": "verified_prefix",
+      "original": "pass",
+      "without_replan": "pass",
+      "used_model_calls": 4,
+      "original_model_calls": 4,
+      "replanned": false
+    }
+  ],
+  "covered": 197,
+  "unverifiable_recordings": 3,
+  "original": {
+    "pass": 124,
+    "fail": 23,
+    "unverifiable": 50,
+    "samples": 197,
+    "confirmed_rate": 0.6294416243654822,
+    "identification_bounds": [
+      0.6294416243654822,
+      0.883248730964467
+    ]
+  },
+  "without_replan": {
+    "pass": 111,
+    "fail": 45,
+    "unverifiable": 41,
+    "samples": 197,
+    "confirmed_rate": 0.5634517766497462,
+    "identification_bounds": [
+      0.5634517766497462,
+      0.7715736040609137
+    ]
+  },
+  "rescued": 13,
+  "lost": 0,
+  "omitted_model_calls": 45
+}

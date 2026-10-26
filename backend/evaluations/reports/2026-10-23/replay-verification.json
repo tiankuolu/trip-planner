@@ -1,0 +1,566 @@
+{
+  "mode": "offline_real_response_replay",
+  "checks": [
+    {
+      "run_id": "basic-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "basic-01-B-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "basic-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "multi_day-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "multi_day-01-B-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "multi_day-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "budget-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "budget-01-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"budget\", \"status\": \"fail\", \"source\": \"snapshot.evidence.prices + raw_plan.travelers + final_plan\", \"detail\": {\"expected\": 300, \"rule\": \"按日期、人数和房间数计算所有费用；任何缺失报价为无法验证\"}}]"
+      }
+    },
+    {
+      "run_id": "budget-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-01-B-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-09-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "required_pois-09-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-09-C-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "daily_count-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "daily_count-01-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"daily_count\", \"status\": \"fail\", \"source\": \"final_plan.days[].attractions\", \"detail\": {\"expected\": [1, 1], \"rule\": \"每天恰好有1个不重复景点\"}}]"
+      }
+    },
+    {
+      "run_id": "daily_count-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "opening-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "opening-01-B-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "opening-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "infeasible-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "infeasible-01-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "infeasible-01-C-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-01-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-02-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-02-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"daily_count\", \"status\": \"fail\", \"source\": \"final_plan.days[].attractions\", \"detail\": {\"expected\": [1, 3], \"rule\": \"每天有1至3个不重复景点\"}}]"
+      }
+    },
+    {
+      "run_id": "faults-02-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-03-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-03-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"hotel\", \"status\": \"fail\", \"source\": \"final_plan.days[].hotel + snapshot.cities.hotels\", \"detail\": {\"expected\": true, \"rule\": \"每个住宿晚对应的酒店必须匹配冻结目录\"}}]"
+      }
+    },
+    {
+      "run_id": "faults-03-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-04-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-04-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-05-A-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'invalid'"
+      }
+    },
+    {
+      "run_id": "faults-04-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-05-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'invalid'"
+      }
+    },
+    {
+      "run_id": "faults-06-B-0",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-05-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-06-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "time_window-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "time_window-01-B-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-06-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "time_window-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "people-01-A-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "people-01-B-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "basic-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "people-01-C-0",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "basic-01-B-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "basic-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "multi_day-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "multi_day-01-B-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "multi_day-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "budget-01-B-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "budget-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "budget-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-01-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"daily_count\", \"status\": \"fail\", \"source\": \"final_plan.days[].attractions\", \"detail\": {\"expected\": [1, 3], \"rule\": \"每天有1至3个不重复景点\"}}]"
+      }
+    },
+    {
+      "run_id": "required_pois-09-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "required_pois-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-09-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "required_pois-09-C-1",
+      "status": "unverifiable",
+      "reason": "缺少完整模型响应录制"
+    },
+    {
+      "run_id": "daily_count-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "daily_count-01-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"daily_count\", \"status\": \"fail\", \"source\": \"final_plan.days[].attractions\", \"detail\": {\"expected\": [1, 1], \"rule\": \"每天恰好有1个不重复景点\"}}]"
+      }
+    },
+    {
+      "run_id": "daily_count-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "opening-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "opening-01-B-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "infeasible-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "opening-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "infeasible-01-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-01-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "infeasible-01-C-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-02-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-02-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"daily_count\", \"status\": \"fail\", \"source\": \"final_plan.days[].attractions\", \"detail\": {\"expected\": [1, 3], \"rule\": \"每天有1至3个不重复景点\"}}]"
+      }
+    },
+    {
+      "run_id": "faults-02-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-03-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-03-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"hotel\", \"status\": \"fail\", \"source\": \"final_plan.days[].hotel + snapshot.cities.hotels\", \"detail\": {\"expected\": true, \"rule\": \"每个住宿晚对应的酒店必须匹配冻结目录\"}}]"
+      }
+    },
+    {
+      "run_id": "faults-04-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-04-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-03-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-05-A-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'invalid'"
+      }
+    },
+    {
+      "run_id": "faults-05-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'invalid'"
+      }
+    },
+    {
+      "run_id": "faults-04-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-06-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "PlanGenerationError",
+        "message": "模型没有返回任何日程（days 为空）"
+      }
+    },
+    {
+      "run_id": "faults-05-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-06-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "time_window-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "time_window-01-B-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "faults-06-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "people-01-A-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "time_window-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    },
+    {
+      "run_id": "people-01-B-1",
+      "status": "pass",
+      "replay_error": {
+        "type": "ConstraintError",
+        "message": "[{\"name\": \"daily_count\", \"status\": \"fail\", \"source\": \"final_plan.days[].attractions\", \"detail\": {\"expected\": [1, 3], \"rule\": \"每天有1至3个不重复景点\"}}]"
+      }
+    },
+    {
+      "run_id": "people-01-C-1",
+      "status": "pass",
+      "replay_error": null
+    }
+  ],
+  "passed": 95,
+  "failed": 0,
+  "unverifiable": 1
+}

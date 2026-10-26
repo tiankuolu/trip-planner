@@ -20,6 +20,18 @@ backend/data/
 *.db
 *.db-wal
 *.db-shm
+.evaluation-work/
+.artifacts/
+*.tsbuildinfo
+backend/evaluations/runs/
+
+# 书籍方法实验的原始记录保存在独立证据压缩包。
+backend/evaluations/reports/book-study-20261024/ablation/
+backend/evaluations/reports/book-study-20261024/trial/daily_count-*.json
+backend/evaluations/reports/book-study-20261024/trial/faults-*.json
+backend/evaluations/reports/book-study-20261024/trial/*.partial
+backend/evaluations/reports/book-study-20261024/trial/source.json
+backend/evaluations/reports/book-study-20261024/trial/results.sqlite
 
 # Node and build output
 node_modules/
