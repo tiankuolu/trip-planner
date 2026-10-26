@@ -35,6 +35,9 @@ jobs:
       - name: 代码规范
         run: ruff check app tests evaluations scripts/verify_evaluation.py scripts/export_evaluation.py scripts/complete_evaluation.py scripts/book_evaluation.py
 
+      - name: 创建测试与评测目录
+        run: mkdir -p .evaluation-work
+
       - name: 单元测试
         env:
           # CI执行工程测试和离线评测验证，不调用外部API。
